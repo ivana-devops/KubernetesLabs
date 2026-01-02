@@ -15,14 +15,14 @@
 ---
 
 <!-- omit in toc -->
-## Pre requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 <!-- omit in toc -->
 ---
@@ -439,3 +439,4 @@ In this lab, you learned:
 - [Kubernetes Node Affinity Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 - [Kubernetes Taints and Tolerations Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 - [Pod Priority and Preemption](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/)
+

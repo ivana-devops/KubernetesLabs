@@ -16,16 +16,16 @@
 ---
 
 
-### Pre-Requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
-### 01. Create Namespace
+### Step 01 - Create Namespace
 
 ```sh
 # In this sample `codewizard` is the desired namespace
@@ -38,7 +38,7 @@ $ kubectl create namespace my_namespace-
 
 ---
 
-### 02. Setting the default Namespace for `kubectl`
+### Step 02 - Setting the default Namespace for `kubectl`
 
 - To set the default namespace run:
 
@@ -50,7 +50,7 @@ Context minikube modified.
 
 ---
 
-### 03. Verify that you've updated the namespace
+### Step 03 - Verify that you've updated the namespace
 
 ```sh
 $ kubectl config get-contexts
@@ -62,7 +62,7 @@ CURRENT     NAME                 CLUSTER          AUTHINFO         NAMESPACE
 
 ---
 
-### 0.4 Using the `-n` Flag:
+### Step 04 - Using the `-n` Flag
 
 - When using `kubectl` you can pass the `-n` flag in order to execute the `kubectl` command on a desired `namespace`.
 - For example:

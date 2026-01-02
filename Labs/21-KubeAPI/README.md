@@ -11,11 +11,11 @@
 
 ---
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---

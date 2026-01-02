@@ -8,12 +8,12 @@
 
 ## Declarative Configuration in Kubernetes
 
-- `Kustomize` is a very powerful too for customizing and building Kubernetes resources.
+- `Kustomize` is a very powerful tool for customizing and building Kubernetes resources.
 - `Kustomize` started at 2017, and added to `kubectl` since version 1.14.
 - `Kustomize` has many useful features for managing and deploying resource.
 - When you execute a Kustomization beside using the builtin features, it will also re-order the resources in a logical way for the K8S to be deployed.
 
-### 01. Re-order the resources
+### Step 01 - Re-order the resources
 
 - `Kustomization` re-orders the `Kind` for optimization. For this demo, we will need an existing `namespace` before using it.
 
@@ -57,7 +57,7 @@ var orderLast = []string{
 
 ---
 
-### 02. Base resource for our demo
+### Step 02 - Base resource for our demo
 - In the following samples we will refer to the following `base.yaml` file:
 
 ```yaml
@@ -82,7 +82,7 @@ spec:
 ```
 
 ---
-### 03. Common Features
+### Step 03 - Common Features
 
 - [common Annotation](#commonannotation)
 - [common Labels](#commonlabels)

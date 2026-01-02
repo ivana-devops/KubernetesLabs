@@ -14,16 +14,16 @@
 ---
 
 <!-- omit in toc -->
-## Pre Requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 - A `Git repository` (GitHub, GitLab, or Bitbucket) for storing application manifests
 - Basic understanding of Kubernetes resources (Deployments, Services, etc.)
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 <!-- omit in toc -->
 
 ---
@@ -103,11 +103,11 @@ spec:
                         --field-selector=status.phase==Pending); 
     do
 
-    # Get the desired schedulerName if th epod has defined any schedulerName
+    # Get the desired schedulerName if the pod has defined any schedulerName
     CUSTOM_SCHEDULER_NAME=$(kubectl get pod ${POD} \
                                     --output jsonpath='{.spec.schedulerName}')
 
-    # Check if the desired schedulerName is our custome one
+    # Check if the desired schedulerName is our custom one
     # If its a match this is where our custom scheduler will "jump in"
     if [ "${CUSTOM_SCHEDULER_NAME}" == "${CUSTOM_SCHEDULER}" ]; 
       then

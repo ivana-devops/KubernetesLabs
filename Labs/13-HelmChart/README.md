@@ -12,16 +12,16 @@
 
 ---
 <!-- omit in toc -->
-## Pre requirements
+### Prerequisites
 
 - [`Helm`](https://helm.sh/docs/intro/install/) installed
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 <!-- omit in toc -->
 ---
 
@@ -72,7 +72,7 @@
 | `charts/`       | Directory containing dependencies of the chart.                                                              |
 | `README.md`     | Documentation for the chart, explaining how to use and configure it.                                         |
 
-##### codewizard-helm-demo Helm Chart tructure
+##### codewizard-helm-demo Helm Chart Structure
 
 ```sh
 - Chart.yaml        # Defines chart metadata and values schema
@@ -85,7 +85,7 @@
 
 ### Common `Helm` Commands 
 
-Here are some of the most common `Helm` commands you’ll use when working with `Helm` charts:
+Here are some of the most common `Helm` commands you'll use when working with `Helm` charts:
 
 | Command                                          | Description                                                                                              |
 | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
@@ -105,7 +105,7 @@ Here are some of the most common `Helm` commands you’ll use when working with 
 
 ---
 
-# Lab
+## Lab Exercises
 
 ### Step 01 - Installing `Helm` 
 

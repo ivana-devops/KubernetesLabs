@@ -8,22 +8,22 @@
 ---
 # Prometheus and Grafana Monitoring Lab
 
-- In this lab, we will learn how to set up and configure *`Prometheus`  and `Grafana` for monitoring a Kubernetes cluster.
+- In this lab, we will learn how to set up and configure `Prometheus` and `Grafana` for monitoring a Kubernetes cluster.
 - You will install `Prometheus` to collect metrics from the cluster and `Grafana` to visualize those metrics.
 - By the end of this lab, you will have a functional monitoring stack that provides insights into the health and performance of your Kubernetes environment.
 
 ---
 <!-- omit in toc -->
-## Pre requirements
+### Prerequisites
 
 - [`Helm`](https://helm.sh/docs/intro/install/) installed
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 <!-- omit in toc -->
 ---
 
@@ -114,17 +114,17 @@ helm repo update
               --namespace monitoring  \
               -o jsonpath='{.data.admin-password}' | base64 --decode ; echo
   
-  # Set the port forwarding so you can access the service using your browsers
+  # Set the port forwarding so you can access the service using your browser
   kubectl port-forward            \
           --namespace monitoring  \
           service/grafana 3000:80
   ```
 
-- Verify that you can access `**Grafana`
+- Verify that you can access **Grafana**
   - Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
-  - The default login is: 
-    - **Username** : `admin`
-    - **Password** : (the password you retrieved earlier)
+  - The default login credentials are: 
+    - **Username**: `admin`
+    - **Password**: (the password you retrieved earlier)
 
 
 !!! warning "Accessing Grafana on Google Cloud Shell"
@@ -189,7 +189,7 @@ kubectl port-forward            \
 
 ## Part 03 - Configuring Grafana 
 
-- In this part we will set `grafana` to display the Cluster's CPUs, Memory, and Requests.
+- In this part we will set `Grafana` to display the Cluster's CPUs, Memory, and Requests.
 - `Grafana` dashboards can be configured to display **real-time metrics** for CPU, memory, and requests.
 - `Prometheus` stores these metrics and `Grafana` will query `Prometheus` to display them.
 
@@ -209,10 +209,10 @@ kubectl port-forward            \
  
   1. In `Grafana`, open the left sidebar menu and select **Dashboard**.
   2. Click **Add visualization**.
-  3. Choose `Data Source` (as we defined it previously).
-  4. In the panel editor, click on the `Code` option (right side of the query builder).
-  5. Enter the below queries to visualize metric(s): 
-     Note: To add new query click on the `+ Add query`
+  3. Choose the `Data Source` (as we defined it previously).
+  4. In the panel editor, click on the **Code** option (right side of the query builder).
+  5. Use the queries below to visualize the metrics: 
+     Note: To add a new query, click on **+ Add query**.
   6. Save the dashboard.
   
 <br>
@@ -246,14 +246,14 @@ kubectl port-forward            \
 count(kube_pod_info{}) by (namespace)
 ```
 
-- Add another query which will count the number of pods under the namespace `monitoring`:
+- Add another query that counts the number of pods in the `monitoring` namespace:
 
 
   ```sh
   count(kube_pod_info{namespace="monitoring"}) by (namespace)
   ```
 !!! note "Tip"
-    We have already defined query based upon namespaces before....
+    We have already defined queries based on namespaces before...
     You can use the same approach to filter by other labels as well.
     
 ### Step 04: Customize the Panel 

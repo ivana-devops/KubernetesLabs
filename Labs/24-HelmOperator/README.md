@@ -14,11 +14,11 @@
 ---
 
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 - Docker
@@ -142,10 +142,10 @@ operator-sdk                \
 ### Step 02 - Customize the operator logic
 
 - For this example the nginx-operator will execute the following reconciliation logic for each Nginx Custom Resource (CR):
-  - Create an nginx Deployment, if it doesn’t exist.
-  - Create an nginx Service, if it doesn’t exist.
-  - Create an nginx Ingress, if it is enabled and doesn’t exist.
-  - Update the Deployment, Service, and Ingress, if they already exist but don’t match the desired configuration as specified by the Nginx CR.
+  - Create an nginx Deployment, if it doesn't exist.
+  - Create an nginx Service, if it doesn't exist.
+  - Create an nginx Ingress, if it is enabled and doesn't exist.
+  - Update the Deployment, Service, and Ingress, if they already exist but don't match the desired configuration as specified by the Nginx CR.
   - Ensure that the Deployment, Service, and optional Ingress all match the desired configuration (e.g. replica count, image, service type, etc) as specified by the Nginx CR.
 
 <br> 
@@ -174,14 +174,14 @@ operator-sdk                \
 
 ### Understanding the Nginx CR spec
 
-- Helm uses a concept called `values` to provide customizations to a Helm chart’s defaults, which are defined in the Helm chart’s `values.yaml` file.
+- Helm uses a concept called `values` to provide customizations to a Helm chart's defaults, which are defined in the Helm chart's `values.yaml` file.
 
 - Overriding these defaults is as simple as setting the desired values in the CR spec.
-- Let’s use the number of replicas value as an example.
+- Let's use the number of replicas value as an example.
 
 - First, inspecting `helm-charts/nginx/values.yaml`, we can see that the chart has a value called `replicaCount` and it is set to `1` by default.
 
-- Let’s update the value to 3 - `replicaCount: 3`.
+- Let's update the value to 3 - `replicaCount: 3`.
 
   ```yaml
   # Update `config/samples/demo_v1alpha1_nginx.yaml` to look like the following:
@@ -209,7 +209,7 @@ spec:
     port: 8888 # <------- Updating our service port
 ```
 
-### Step 03 - Build the operator’s image
+### Step 03 - Build the operator's image
 
 ```sh
 # Login to your DockerHub / acr / ecr or any other registry account
@@ -296,7 +296,7 @@ kubectl get pods | grep nginx-sample
 kubectl get svc | grep nginx-sample
 ```
 
-### Step07 - Logging / Debugging
+### Step 07 - Logging / Debugging
 
 - We can view the operator's logs using the following command:
 

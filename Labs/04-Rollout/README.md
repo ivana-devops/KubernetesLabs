@@ -10,15 +10,15 @@
 - For learning purposes we will play a little with the `CLI`.
 
 ---
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
-### 01. Create namespace
+### Step 01 - Create Namespace
 
 - As completed in the previous lab, create the desired namespace [codewizard]:
 
@@ -31,7 +31,7 @@ namespace/codewizard created
 
 ---
 
-### 02. Create the desired deployment
+### Step 02 - Create the desired deployment
 
 - We will use the `save-config` flag
   > `save-config`  
@@ -48,7 +48,7 @@ Note that in case we already have this deployed, we will get an error message.
 
 ---
 
-### 03. Expose nginx as a service
+### Step 03 - Expose nginx as a service
 
 ```sh
 
@@ -59,7 +59,7 @@ Again, note that in case we already have this service we will get an error messa
 
 ---
 
-### 04. Verify that the pods and the service are running
+### Step 04 - Verify that the pods and the service are running
 
 ```sh
 $ kubectl get all -n codewizard
@@ -80,7 +80,7 @@ replicaset.apps/nginx-db749865c   1         1         1       66s
 
 ---
 
-### 05. Change the number of replicas to 3
+### Step 05 - Change the number of replicas to 3
 
 ```sh
 $ kubectl scale deployment -n codewizard nginx --replicas=3
@@ -89,7 +89,7 @@ deployment.apps/nginx scaled
 
 ---
 
-### 06. Verify that now we have 3 replicas
+### Step 06 - Verify that now we have 3 replicas
 
 ```sh
 $ kubectl get pods -n codewizard
@@ -101,7 +101,7 @@ nginx-db749865c-lmgtv   1/1     Running   0          4m44s
 
 ---
 
-### 07. Test the deployment
+### Step 07 - Test the deployment
 
 ```sh
 # !!! Get the Ip & port for this service
@@ -136,7 +136,7 @@ Accept-Ranges: bytes
 
 ---
 
-### 08. Deploy another version of nginx
+### Step 08 - Deploy another version of nginx
 
 ```sh
 # Deploy another version of nginx (1.16)
@@ -160,7 +160,7 @@ Accept-Ranges: bytes
 
 ---
 
-### 09. Investigate rollout history:
+### Step 09 - Investigate rollout history
 
 - The rollout history command print out all the saved records:
 
@@ -175,7 +175,7 @@ REVISION  CHANGE-CAUSE
 
 ---
 
-### 10. Let's see what was changed during the previous updates:
+### Step 10 - Let's see what was changed during the previous updates
 
 - Print out the rollout changes:
 
@@ -198,7 +198,7 @@ Pod Template:
 
 ---
 
-### 11. Undo the version upgrade by rolling back and restoring previous version
+### Step 11 - Undo the version upgrade by rolling back and restoring previous version
 
 ```
 # Check the current nginx version
@@ -214,7 +214,7 @@ $ curl -sI <host>:<port>
 
 ---
 
-### 12. Rolling Restart
+### Step 12 - Rolling Restart
 
 - If we deploy using `imagePullPolicy: always` set in the `YAML` file, we can use `rollout restart` to force `K8S` to grab the latest image.
 - **This is the fastest restart method these days**

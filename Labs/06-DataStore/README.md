@@ -15,10 +15,10 @@
 ---
 
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
@@ -26,7 +26,7 @@
 
 # First, Let's play a bit with Secrets
 
-### 01. Create namespace and clear previous data (if there is any)
+### Step 01 - Create namespace and clear previous data (if there is any)
 
 ```sh
 # If the namespace already exist and contains data from previous steps, lets clean it
@@ -42,7 +42,7 @@ namespace/codewizard created
 
 ---
 
-### 02. Build the docker container
+### Step 02 - Build the docker container
 
 ##### 1. write the server code
 - For this demo we will use a tiny NodeJS server which will consume the desired configuration values from the secret
@@ -54,7 +54,7 @@ namespace/codewizard created
 //
 const 
   // Get those values in runtime.
-  // The variables will be passed from the Docker file and later on from K8S ConfingMap/ecret
+  // The variables will be passed from the Docker file and later on from K8S ConfigMap/Secret
   language = process.env.LANGUAGE,
   token = process.env.TOKEN;
 
@@ -178,7 +178,7 @@ docker stop server
 ---
 
 
-### 03. Using K8S deployment & Secrets/ConfigMap
+### Step 03 - Using K8S deployment & Secrets/ConfigMap
 
 ##### 1. Writing the deployment & service file
 
@@ -274,7 +274,7 @@ Token   : Hard-To-Guess2
 
 ---
 
-### 04. Using Secrets & config maps
+### Step 04 - Using Secrets & config maps
 
 ##### 1. Create the desired secret and config map for this lab
 

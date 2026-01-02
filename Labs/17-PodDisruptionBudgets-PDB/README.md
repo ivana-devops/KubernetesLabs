@@ -12,14 +12,14 @@
 ---
 
 <!-- omit in toc -->
-## Pre requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 <!-- omit in toc -->
 ---
@@ -29,7 +29,7 @@
 - A `pod disruption budget` is an **indicator of the number of disruptions that can be tolerated at a given time for a class of pods** (a budget of faults).
 
 - Disruptions may be caused by **deliberate** or **accidental** Pod deletion.
-- Whenever a disruption to the pods in a service is calculated to cause the service to **drop below the budget**, the operation is paused until it can maintain the budget. This means that the `drain event` could be temporarily halted while it waits for more pods to become available such that the budget isn’t crossed by evicting the pods.
+- Whenever a disruption to the pods in a service is calculated to cause the service to **drop below the budget**, the operation is paused until it can maintain the budget. This means that the `drain event` could be temporarily halted while it waits for more pods to become available such that the budget isn't crossed by evicting the pods.
 
 - You can specify Pod Disruption Budgets for Pods managed by these built-in Kubernetes controllers:
 
@@ -38,7 +38,7 @@
     - `ReplicaSet`
     - `StatefulSet`
 
-- For this tutorial you should get familier with [**Kubernetes Eviction Policies**](https://kubernetes.io/docs/concepts/scheduling-eviction/), as it demonstrates how `Pod Disruption Budgets` handle evictions.
+- For this tutorial you should get familiar with [**Kubernetes Eviction Policies**](https://kubernetes.io/docs/concepts/scheduling-eviction/), as it demonstrates how `Pod Disruption Budgets` handle evictions.
 
 - As in the `Kubernetes Eviction Policies` tutorial, we start with 
 ```sh
@@ -48,7 +48,7 @@ eviction-hard="memory.available<480M"
 ---
 
 ### Sample
-- In the below sample we will configure a `Pod Disruption Budget` which insure that we will always have **at least** 1 Nginx instance.
+- In the below sample we will configure a `Pod Disruption Budget` which ensure that we will always have **at least** 1 Nginx instance.
 
 - First we need an [Nginx Deployment](./resources/Deployment.yaml):
 
@@ -71,7 +71,7 @@ kind: PodDisruptionBudget
 metadata:
   name: nginx-pdb
 spec:
-  minAvailable: 1 # <--- This will insure that we will have at least 1
+  minAvailable: 1 # <--- This will ensure that we will have at least 1
   selector:
     matchLabels:
       app: nginx # <- The deployment app label 
@@ -87,7 +87,7 @@ spec:
 ---
 ### Step 01 - Start minikube with Feature Gates
 
-- Run thwe following command to start minikube with the required `Feature Gates` and `Eviction Signals`:
+- Run the following command to start minikube with the required `Feature Gates` and `Eviction Signals`:
 
 ```sh
 minikube start \

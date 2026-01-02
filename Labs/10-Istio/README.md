@@ -12,18 +12,18 @@ Istio is an open-source service mesh that provides a way to manage microservices
 
 ---
 
-## Pre Requirements
+### Prerequisites
 
 - [Helm](https://helm.sh/docs/intro/install/) installed
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
-- [**kubectl**](https://kubernetes.io/docs/tasks/tools/)) configured to interact with your cluster
+- [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
 
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
@@ -34,7 +34,7 @@ Istio is an open-source service mesh that provides a way to manage microservices
 ---
 
 
-## 01. Introduction 
+### Introduction 
 
 ### `Istio` 
 

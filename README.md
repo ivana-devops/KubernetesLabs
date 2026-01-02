@@ -9,16 +9,16 @@
 - A collection of Hands-on labs for Kubernetes (K8S).
 - Each lab is a standalone lab and does not require to complete the previous labs.
 
-### Pre-Requirements
+### Prerequisites
 
 - An existing cluster or any other local tool as described [here](https://kubernetes.io/docs/tasks/tools/)
 - **kubectl** - The Kubernetes command-line tool, kubectl
 
 ---
 
-![](./resources/lab.jpg)
+![](./mkdocs/overrides/assets/images/lab.jpg)
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
 ### **<kbd>CTRL</kbd> + click to open in new window**
 

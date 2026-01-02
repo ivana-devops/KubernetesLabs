@@ -1,8 +1,8 @@
-# K8S Hands-on
+﻿# K8S Hands-on
 
 
 
-### Verify pre-requirements
+### Prerequisites
 
 - **`kubectl`** - short for Kubernetes Controller - is the CLI for Kubernetes cluster and is required in order to be able to run the labs.
 - In order to install `kubectl` and if required creating a local cluster, please refer to [Kubernetes - Install Tools](https://kubernetes.io/docs/tasks/tools/)
@@ -13,49 +13,49 @@
 
 - If you don't have an existing cluster you can use google cloud for the labs hands-on
 - Click on the button below to be able to run the labs on Google Shell <br/>
-  **[Use: <kbd>CTRL + click to open in new window]** 
+  **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window** 
 
-    [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+    [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
 - Run the following commands based on your operating system:
 
-=== " macOS"
+#### 🍎 macOS
 
-    ```bash
-    # Install Kind using Homebrew
-    brew install kind
-    
-    # Verify installation
-    kind version
-    ```
+```bash
+# Install Kind using Homebrew
+brew install kind
 
-=== "🐧 Linux (Ubuntu/Debian)"
+# Verify installation
+kind version
+```
 
-    ```bash
-    # Download Kind binary
-    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-    chmod +x ./kind
-    sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
-    kind version
-    ```
+#### 🐧 Linux (Ubuntu/Debian)
 
-=== "🐧 Linux (CentOS)"
+```bash
+# Download Kind binary
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
 
-    ```bash
-    # Download Kind binary
-    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-    chmod +x ./kind
-    sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
-    kind version
-    ```
+# Verify installation
+kind version
+```
 
-=== "⊞ Windows"
+#### 🐧 Linux (CentOS)
 
-    Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
+```bash
+# Download Kind binary
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+# Verify installation
+kind version
+```
+
+#### 🪟 Windows
+
+Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
 ### 02. Create Kind cluster
 

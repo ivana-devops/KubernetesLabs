@@ -19,15 +19,15 @@
 ---
 
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
-### 01. Deploy sample app
+### Step 01 - Deploy sample app
 
 - To get started with `Nginx-Ingress`, we will deploy out previous app:
 
@@ -42,7 +42,7 @@ $ kubectl expose deployment ingress-pods --port=5000
 
 ---
 
-### 02. Deploy default backend
+### Step 02 - Deploy default backend
 
 - Now lets deploy the `Nginx-Ingress` (grabbed from the official site):
 
@@ -64,7 +64,7 @@ spec:
             terminationGracePeriodSeconds: 60
             containers:
             - name: default-http-backend
-                # Any image is permissable as long as:
+                # Any image is permissible as long as:
                 # 1. It serves a 404 page at /
                 # 2. It serves 200 on a /healthz endpoint
                 image: gcr.io/google_containers/defaultbackend:1.0
@@ -89,7 +89,7 @@ spec:
 ---
 
 
-### 03. Create service
+### Step 03 - Create service
 
 - Next, let's create the service:
 
@@ -112,14 +112,14 @@ spec:
 
 
 
-### 04. Import `ssl` certificate
+### Step 04 - Import `ssl` certificate
 -   In this demo we will use certificate.    
 -   The certificate is in the same folder as this file
 -   The certificate is for the hostname: `ingress.local`
 
 ```sh
 # If you wish to create the certificate use this script
-### ---> The common Name fiels is your host for later on
+### ---> The common Name fields is your host for later on
 ###      Common Name (e.g. server FQDN or YOUR name) []:
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certificate.key -out certificate.crt
 
@@ -142,7 +142,7 @@ secret/tls-dhparam created
 
 ---
 
-### 05. Deploy the ingress
+### Step 05 - Deploy the ingress
 - Now that we have the certificate, we can deploy the `Ingress`:
 
 ```yaml
@@ -171,7 +171,7 @@ spec:
 
 ---
 
-### 06. Enable the ingress addon 
+### Step 06 - Enable the ingress addon 
 
 - The `Ingress` is not enabled by default, so we have to "turn it on":
 

@@ -14,17 +14,17 @@
 
 ---
 
-### Pre-Requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
 
-### 01. Create Namespace
+### Step 01 - Create Namespace
 
 - As completed in the previous lab, create the desired namespace [codewizard]:
 
@@ -37,7 +37,7 @@ namespace/codewizard created
 
 ---
 
-### 02. Deploy Multitool Image
+### Step 02 - Deploy Multitool Image
 
 ```sh
 # Deploy the first container
@@ -64,7 +64,7 @@ pod/multitool-7885b5f94f-9s7xh          1/1      Running     0
 
 ---
 
-## 03. Test the Deployment
+### Step 03 - Test the Deployment
 
 - The above deployment contains a container named, `multitool`.
 - In order for us to be able to access this `multitool` container, we need to create a resource of type `Service` which will "open" the server for incoming traffic.
@@ -73,7 +73,7 @@ pod/multitool-7885b5f94f-9s7xh          1/1      Running     0
 
 ```sh
 # "Expose" the desired port for incoming traffic
-# This command is equivalent to declare a `kind: Service` im YAML file
+# This command is equivalent to declare a `kind: Service` in YAML file
 
 $ kubectl expose deployment -n codewizard multitool --port 80 --type NodePort
 service/multitool exposed

@@ -7,7 +7,7 @@
 
 # StatefulSets
 
-<img src="../assets/images/statefulSet.png" width=500>
+<img src="../../mkdocs/overrides/assets/images/statefulSet.png" width=500>
 
 
 ## The Difference Between a `Statefulset` And a `Deployment`
@@ -60,17 +60,17 @@
 
 ---
 
-### Pre-Requirements
+### Prerequisites
 
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 
 ---
 
-### 01. Create namespace and clear previous data if there is any
+### Step 01 - Create namespace and clear previous data if there is any
 
 ```sh
 # If the namespace already exist and contains data form previous steps, lets clean it
@@ -81,14 +81,14 @@ $ kubectl create namespace codewizard
 namespace/codewizard created
 ```
 
-### 02. Create and test the Stateful application
+### Step 02 - Create and test the Stateful application
 
 - In order to deploy the Stateful set we will need the following resources:
 
   - `ConfigMap`
   - `Service`
   - `StatefulSet`
-  - `PersistentVolumeClaim or`PersistentVolume`
+  - `PersistentVolumeClaim` or `PersistentVolume`
 
 - All the resources including `kustomization` script are defined inside the base folder
 
@@ -104,7 +104,7 @@ namespace/codewizard created
     labels:
       app: postgres
   data:
-    # The following names are the one defined in the officail postgres docs
+    # The following names are the one defined in the official postgres docs
 
     # The name of the database we will use in this demo
     POSTGRES_DB: codewizard
@@ -127,7 +127,7 @@ namespace/codewizard created
       app: postgres
     # Service of type nodeport
     type: NodePort
-    # The deafult port for postgres
+    # The default port for postgres
     ports:
       - port: 5432
   ```
@@ -209,7 +209,7 @@ kubectl kustomize PostgreSQL/ | kubectl apply -f -
 
 ---
 
-### 03. Test the Stateful application
+### Step 03 - Test the Stateful application
 
 - Use the - [testDB.sh](./PostgreSQL/testDB.sh) to test the StatefulSet
 - Don't forget to set the execution flag `chmod +x testDb.sh` if required
@@ -247,7 +247,7 @@ printenv | grep POST*
 
 # Connect to postgres and create table if required.
 # Once the table exists - add row into the table
-# you can run this command as amny times as you like
+# you can run this command as many times as you like
 psql \
     -U ${POSTGRES_USER} \
     -h ${CLUSTER_IP} \
@@ -256,7 +256,7 @@ psql \
     -c "CREATE TABLE IF NOT EXISTS stateful (str VARCHAR); INSERT INTO stateful values (1); SELECT count(*) FROM stateful"
 ```
 
-### 04. Scale down the StatefulSet and check that its down
+### Step 04 - Scale down the StatefulSet and check that its down
 
 #### 04.01. Scale down the `Statefulset` to 0
 
@@ -296,7 +296,7 @@ psql: error: could not connect to server: Connection refused
         TCP/IP connections on port 32570?
 ```
 
-### 05. Scale up again and verify that we still have the prevoius data
+### Step 05 - Scale up again and verify that we still have the previous data
 
 #### 05.01. scale up the `Statefulset` to 1 or more
 

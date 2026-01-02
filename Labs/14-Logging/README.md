@@ -12,15 +12,15 @@
 
 ---
 <!-- omit in toc -->
-## Pre requirements
+### Prerequisites
 
 - Kubernetes cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 - [Helm](https://helm.sh/docs/intro/install/) installed for easier deployment
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
 
-### **<kbd>CTRL</kbd> + click to open in new window**
+### **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 <!-- omit in toc -->
 ---
 
@@ -38,12 +38,12 @@
 ## Introduction
 
 - `Logging` is critical for monitoring, debugging, and auditing applications in Kubernetes.
-- Kubernetes does not provide a builtin, centralized `Logging` solution, but it allows us to integrate with many `Logging` stacks.
+- Kubernetes does not provide a built-in, centralized `Logging` solution, but it allows us to integrate with many `Logging` stacks.
 - We will set up the EFK stack (`Elasticsearch`, `Fluentd`, `Kibana`) to collect, store, and visualize logs from our cluster.
 
 ---
 
-## Lab
+## Lab Exercises
 
 ### Step 01 - Deploy a Sample Application
 

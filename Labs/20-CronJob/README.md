@@ -12,11 +12,11 @@
 
 ---
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 - [**kubectl**](https://kubernetes.io/docs/tasks/tools/) configured to interact with your cluster
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
@@ -27,7 +27,7 @@
 
 ---
 
-### Step - 01: Create a CronJob YAML
+### Step 01 - Create a CronJob YAML
 - Create a file named `hello-cronjob.yaml` with the following content:
 
 ```yaml
@@ -54,20 +54,20 @@ spec:
 
 
 
-### Step - 02: Apply the CronJob
+### Step 02 - Apply the CronJob
 
 ```sh
 kubectl apply -f hello-cronjob.yaml
 ```
 
-### Step - 03: Verify CronJob Creation
+### Step 03 - Verify CronJob Creation
 
 ```sh
 kubectl get cronjob hello
 ```
 
 
-### Step - 04: Check CronJob and Jobs
+### Step 04 - Check CronJob and Jobs
 
 - List CronJobs:
 
@@ -89,7 +89,7 @@ kubectl get pods
 
 
 
-### Step - 05: View Job Output
+### Step 05 - View Job Output
 
 - Get the name of a pod created by the CronJob, then view its logs:
 
@@ -99,13 +99,13 @@ kubectl logs <pod-name>
 
 Example output:
 
-```
+```text
 Mon Nov 10 12:00:00 UTC 2025
 Hello from the Kubernetes CronJob!
 ```
 
 
-### Step - 06: Clean Up
+### Step 06 - Clean Up
 
 - Delete the CronJob and its Jobs:
 

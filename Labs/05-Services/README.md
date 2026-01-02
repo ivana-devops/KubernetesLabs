@@ -9,15 +9,15 @@
 - In the following lab we will learn what is a `Service` and go over the different `Service` types.
 
 ---
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
-## 01. Some general notes on what is a `Service`
+## Some general notes on what is a `Service`
 
 
 - `Service` is a unit of application behavior bound to a unique name in a `service registry`. 
@@ -25,13 +25,13 @@
 - `Service` allow us to gain access to any given pod or container (e.g., a web service).
 - A `service` is (normally) created on top of an existing deployment and exposing it to the "world", using IP(s) & port(s).
 - `K8S` define 3 main ways (+FQDN internally) to define a service, which means that we have 4 different ways to access Pods.
-- There are several proxy mode which inplements diffrent behaviour, for example in `user proxy mode` for each `Service` `kube-proxy` opens a port (randomly chosen) on the local node. Any connections to this "proxy port" are proxied to one of the Service's backend Pods (as reported via Endpoints).
+- There are several proxy mode which implements different behaviour, for example in `user proxy mode` for each `Service` `kube-proxy` opens a port (randomly chosen) on the local node. Any connections to this "proxy port" are proxied to one of the Service's backend Pods (as reported via Endpoints).
 - All the service types are assigned with a `Cluster-IP`.
-- Every service also creates `Endoint(s)`, which point to the actual pods. `Endpoints` are usually referred to as `back-ends` of a particular service.
+- Every service also creates `Endpoint(s)`, which point to the actual pods. `Endpoints` are usually referred to as `back-ends` of a particular service.
 
 ---
 
-### 01. Create namespace and clear previous data if there is any
+### Step 01 - Create namespace and clear previous data if there is any
 
 ```sh
 # If the namespace already exists and contains data form previous steps, let's clean it
@@ -44,7 +44,7 @@ namespace/codewizard created
 
 ---
 
-### 02. Create the required resources for this hand-on
+### Step 02 - Create the required resources for this hand-on
 
 ```sh
 # Network tools pod
@@ -84,7 +84,7 @@ replicaset.apps/nginx-6799fc88d8       1         1         1       8s
 
 ---
 
-### 03. Expose the nginx with ClusterIP
+### Step 03 - Expose the nginx with ClusterIP
 
 ```sh
 # Expose the service on port 80
@@ -101,7 +101,7 @@ nginx        ClusterIP   10.109.78.182   <none>        80/TCP
 
 ---
 
-### 04. Test the nginx with ClusterIP
+### Step 04 - Test the nginx with ClusterIP
 
 - Since the service is a `ClusterIP`, we will test if we can access the service using the multitool pod.
 
@@ -208,7 +208,7 @@ bash-5.0# curl -s nginx.codewizard.svc.cluster.local
 - A `ClusterIP` Service, to which the `NodePort` Service routes, **is automatically created**.
 - `NodePort` service is reachable from outside the cluster, by requesting `<Node IP>:<Node Port>`.
 
-### 05. Create NodePort
+### Step 05 - Create NodePort
 
 ##### 1. Delete previous service
 
@@ -264,7 +264,7 @@ Thank you for using nginx.
 
 
 
-### 06. Create LoadBalancer (only if you are on real cloud)
+### Step 06 - Create LoadBalancer (only if you are on real cloud)
 
 <br>
 

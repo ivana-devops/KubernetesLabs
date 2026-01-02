@@ -10,7 +10,7 @@
 
 ---
 
-## Walkthrough 
+### Walkthrough
 - Patch `minikube` so we can use `Service: LoadBalancer`
 
 ```sh

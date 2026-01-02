@@ -6,16 +6,16 @@
 
 # Deployment - Declarative
 
-### Pre-Requirements
+### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)  
 **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window**
 
 ---
 
 
-### 01. Create Namespace
+### Step 01 - Create Namespace
 
 - As completed in the previous lab, create the desired namespace [codewizard]:
 
@@ -28,7 +28,7 @@ namespace/codewizard created
 
 ---
 
-### 02. Deploy nginx using yaml file (declarative)
+### Step 02 - Deploy nginx using yaml file (declarative)
 
 - Let's create the `YAML` file for the deployment.
 - If this is your first `k8s` `YAML` file, its advisable that you type it in order to get the feeling of the structure.
@@ -69,7 +69,7 @@ spec:
 
 ---
 
-### 03. Verify that the deployment has been created:
+### Step 03 - Verify that the deployment has been created
 
 ```
 $ kubectl get deployments -n codewizard
@@ -80,7 +80,7 @@ nginx       1         1         1            1
 
 ---
 
-### 04. Check if the pods are running:
+### Step 04 - Check if the pods are running
 
 ```
 $ kubectl get pods -n codewizard
@@ -89,7 +89,7 @@ multitool-7885b5f94f-9s7xh   1/1     Running   0
 nginx-647fb5956d-v8d2w       1/1     Running   0
 ```
 
-### 05. Playing with K8S replicas
+### Step 05 - Playing with K8S replicas
 
 - Let's play with the replica and see K8S in action.
 - Open a second terminal and execute:
@@ -100,7 +100,7 @@ $ kubectl get pods -n codewizard --watch
 
 ---
 
-### 05. Update the `nginx.yaml` file with replica's value of 5:
+### Step 06 - Update the `nginx.yaml` file with replica's value of 5
 
 ```yaml
 spec:
@@ -109,7 +109,7 @@ spec:
 
 ---
 
-### 06. Update the deployment using `kubectl apply`
+### Step 07 - Update the deployment using `kubectl apply`
 
 ```
 $ kubectl apply -n codewizard -f nginx.yaml --record=true
@@ -149,7 +149,7 @@ nginx-dc8bb9b45-wkc68        1/1     Running             0          3s
 
 ---
 
-### 07. Scaling down with `kubectl scale`
+### Step 08 - Scaling down with `kubectl scale`
 
 
 - Scaling down using `kubectl`, and not by editing the `YAML` file:
