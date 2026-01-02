@@ -9,7 +9,7 @@
 
 ---
 
-### 01. Installing Kind
+### Step 01 - Installing Kind
 
 - If you don't have an existing cluster you can use google cloud for the labs hands-on
 - Click on the button below to be able to run the labs on Google Shell <br/>
@@ -57,7 +57,7 @@ kind version
 
 Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
-### 02. Create Kind cluster
+### Step 02 - Create Kind cluster
 
 ```sh
 kind create cluster
@@ -81,7 +81,7 @@ kubectl cluster-info --context kind-kind
 Thanks for using kind! 😊
 ```
 
-### 03. Check the Kind cluster status
+### Step 03 - Check the Kind cluster status
 
 ```sh
 kubectl cluster-info
@@ -96,7 +96,7 @@ CoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/servi
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-### 04. Verify that the cluster is up and running
+### Step 04 - Verify that the cluster is up and running
 
 ```sh
 kubectl cluster-info
@@ -131,7 +131,7 @@ users:
     client-key-data: REDACTED
 ```
 
-### 05. Verify that you can "talk" to your cluster
+### Step 05 - Verify that you can "talk" to your cluster
 
 ```sh
 # Check the nodes in the Kind cluster

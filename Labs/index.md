@@ -58,7 +58,7 @@ Welcome to the hands-on Kubernetes labs! This comprehensive series of labs will 
 | Lab | Topic | Description |
 |-----|-------|-------------|
 | [11](11-CRD-Custom-Resource-Definition/README.md) | Custom Resource Definition | Extend Kubernetes API with CRDs |
-| [16](16-Affinity-Taint-Tolleration/README.md) | Affinity, Taint & Toleration | Control pod scheduling |
+| [16](16-Affinity-Taint-Toleration/README.md) | Affinity, Taint & Toleration | Control pod scheduling |
 | [17](17-PodDisruptionBudgets-PDB/README.md) | Pod Disruption Budgets | Ensure availability during disruptions |
 | [19](19-CustomScheduler/README.md) | Custom Scheduler | Build custom scheduling logic |
 | [20](20-CronJob/README.md) | CronJob | Schedule recurring tasks |

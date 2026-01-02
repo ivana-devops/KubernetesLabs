@@ -43,7 +43,7 @@
 :green_book: [12-Wordpress-MySQL-PVC](Labs/12-Wordpress-MySQL-PVC/README.md)  
 :green_book: [13-HelmChart](Labs/13-HelmChart/README.md)  
 :green_book: [15-Prometheus-Grafana](Labs/15-Prometheus-Grafana/README.md)  
-:green_book: [16-Affinity-Taint-Tolleration](Labs/16-Affinity-Taint-Tolleration/README.md)  
+:green_book: [16-Affinity-Taint-Toleration](Labs/16-Affinity-Taint-Toleration/README.md)  
 :green_book: [17-PodDisruptionBudgets-PDB](Labs/17-PodDisruptionBudgets-PDB/README.md)  
 :green_book: [19-CustomScheduler](Labs/19-CustomScheduler/README.md)  
 :green_book: [20-CronJob](Labs/20-CronJob/README.md)  
@@ -174,7 +174,7 @@
 
 :green_book: [15-Prometheus-Grafana](Labs/15-Prometheus-Grafana/README.md)
 
-:green_book: [16-Affinity-Taint-Tolleration](Labs/16-Affinity-Taint-Tolleration/README.md)
+:green_book: [16-Affinity-Taint-Toleration](Labs/16-Affinity-Taint-Toleration/README.md)
 
 :green_book: [17-PodDisruptionBudgets-PDB](Labs/17-PodDisruptionBudgets-PDB/README.md)
 
