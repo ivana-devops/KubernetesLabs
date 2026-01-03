@@ -59,16 +59,19 @@ Kubernetes provides several mechanisms to control which Nodes your Pods run on:
 
 - First, let's label some Nodes to use with Node `Affinity`:
 
+**Get list of nodes**
 ```bash
-# Get list of nodes
 kubectl get nodes
+```
 
-# Label a node with environment=production
+**Label a node with environment=production**
+```bash
 kubectl label nodes <node-name> environment=production
+```
 
-# Label another node with environment=development
+**Label another node with environment=development**
+```bash
 kubectl label nodes <node-name> environment=development
-
 ```
 
 **Verify the labels**
