@@ -1,116 +1,14 @@
-<<<<<<< HEAD
-﻿# K8S Hands-on
----
-
-## Verify Cluster Setup
-### Prerequisites
-=======
 # K8S Hands-on
 
 
 
 ### Verify pre-requirements
->>>>>>> upstream/master
 
 - **`kubectl`** - short for Kubernetes Controller - is the CLI for Kubernetes cluster and is required in order to be able to run the labs.
 - In order to install `kubectl` and if required creating a local cluster, please refer to [Kubernetes - Install Tools](https://kubernetes.io/docs/tasks/tools/)
 
 ---
 
-<<<<<<< HEAD
-### Step 01 - Installing Kind
-
-- If you don't have an existing cluster you can use google cloud for the labs hands-on
-- Click on the button below to be able to run the labs on Google Shell <br/>
-  **<kbd>CTRL</kbd> + <kbd>click</kbd> to open in new window** 
-
-    [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ide.cloud.google.com/?cloudshell_git_repo=https://github.com/nirgeier/KubernetesLabs)
-
-- Run the following commands based on your operating system:
-
-#### 🍎 macOS
-
-**Install Kind using Homebrew**
-```bash
-brew install kind
-```
-
-**Verify installation**
-```bash
-kind version
-```
-
-#### 🐧 Linux (Ubuntu/Debian)
-
-**Download Kind binary**
-```bash
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-chmod +x ./kind
-sudo mv ./kind /usr/local/bin/kind
-```
-
-**Verify installation**
-```bash
-kind version
-```
-
-#### 🐧 Linux (CentOS)
-
-**Download Kind binary**
-```bash
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-chmod +x ./kind
-sudo mv ./kind /usr/local/bin/kind
-```
-
-**Verify installation**
-```bash
-kind version
-```
-
-#### 🪟 Windows
-
-Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
-
-### Step 02 - Create Kind cluster
-
-```bash
-kind create cluster
-```
-!!! success "Expected Result"
-    ```text
-    Creating cluster "kind" ...
-     • Ensuring node image (kindest/node:v1.27.3) 🖼
-     • Preparing nodes 📦
-     • Writing configuration 📜
-     • Starting control-plane 🕹️
-     • Installing CNI 🔌
-     • Installing StorageClass 💾
-    Set kubectl context to "kind-kind"
-    You can now use your cluster with:
-
-    kubectl cluster-info --context kind-kind
-
-    Thanks for using kind! 😊
-    ```
-
-### Step 03 - Check the Kind cluster status
-
-```bash
-kubectl cluster-info
-```
-!!! success "Expected Result"
-    ```text
-    Kubernetes control plane is running at https://127.0.0.1:6443
-    CoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-
-    To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
-    ```
-
-### Step 04 - Verify that the cluster is up and running
-
-```sh
-=======
 ### 01. Installing Kind
 
 - If you don't have an existing cluster you can use google cloud for the labs hands-on
@@ -201,7 +99,6 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ### 04. Verify that the cluster is up and running
 
 ```sh
->>>>>>> upstream/master
 kubectl cluster-info
 ```
 
@@ -233,9 +130,6 @@ kubectl config view
         client-key-data: REDACTED
     ```
 
-<<<<<<< HEAD
-### Step 05 - Verify that you can "talk" to your cluster
-=======
 - You should get something like the following
 ```yaml
 apiVersion: v1
@@ -260,19 +154,9 @@ users:
 ```
 
 ### 05. Verify that you can "talk" to your cluster
->>>>>>> upstream/master
 
 **Check the nodes in the Kind cluster**
 ```sh
-<<<<<<< HEAD
-kubectl get nodes
-```
-!!! success "Expected Result"
-    ```text
-    NAME                 STATUS   ROLES           AGE    VERSION
-    kind-control-plane   Ready    control-plane   2m     v1.27.3
-    ```
-=======
 # Check the nodes in the Kind cluster
 kubectl get nodes
 ```
@@ -283,4 +167,3 @@ kubectl get nodes
 NAME                 STATUS   ROLES           AGE    VERSION
 kind-control-plane   Ready    control-plane   2m     v1.27.3
 ```
->>>>>>> upstream/master
