@@ -19,7 +19,7 @@
 
 - Run the following commands based on your operating system:
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install Kind using Homebrew
