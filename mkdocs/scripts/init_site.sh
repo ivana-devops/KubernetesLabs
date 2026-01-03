@@ -342,17 +342,35 @@ update_mkdocs_config() {
 # Concatenate all MkDocs configuration files
 #######################################
 build_mkdocs_config() {
-    print_info "Building final mkdocs.yml from individual config files..."
+    print_info "Building MkDocs configuration files from modules..."
     
-    if ! find mkdocs -name "*.yml" -not -name "passwords.yml" -exec cat {} \; > mkdocs.yml 2>/dev/null; then
-        print_error "Failed to concatenate mkdocs config files"
+    # Define outputs
+    local ONLINE_CONFIG="mkdocs-online.yml"
+    local OFFLINE_CONFIG="mkdocs-offline.yml"
+    
+    # 1. Build Online Config (Default)
+    if ! find mkdocs -name "*.yml" -not -name "passwords.yml" -exec cat {} \; > "$ONLINE_CONFIG" 2>/dev/null; then
+        print_error "Failed to build $ONLINE_CONFIG"
         exit 1
     fi
+    # Update social links
+    update_social_links "$ONLINE_CONFIG"
+    print_success "Built $ONLINE_CONFIG"
     
-    # Update social links in the final mkdocs.yml file
-    update_social_links "mkdocs.yml"
+    # 2. Build Offline Config
+    # Copy online config as base
+    cp "$ONLINE_CONFIG" "$OFFLINE_CONFIG"
     
-    print_success "Successfully built mkdocs.yml"
+    # Replace online visitor badge with local asset for offline mode
+    # Use sed to swap the URL with the local path
+    sed -i.bak 's|https://visitor-badge.laobi.icu/badge?page_id=nirgeier|/assets/images/visitor-badge.svg|g' "$OFFLINE_CONFIG"
+    rm -f "${OFFLINE_CONFIG}.bak"
+    
+    print_success "Built $OFFLINE_CONFIG"
+
+    # 3. Create default mkdocs.yml symlink/copy (points to online)
+    cp "$ONLINE_CONFIG" mkdocs.yml
+    print_success "Updated default mkdocs.yml (points to Online config)"
 }
 
 #######################################
@@ -361,14 +379,19 @@ build_mkdocs_config() {
 build_dynamic_navigation() {
     print_info "Building dynamic navigation structure..."
     
-    if [[ -f "build_nav.sh" ]]; then
-        if ./build_nav.sh --sort numeric; then
+    local nav_script="${PROJECT_ROOT}/mkdocs/scripts/build_nav.sh"
+    
+    if [[ -f "$nav_script" ]]; then
+        # Ensure it has execute permissions
+        chmod +x "$nav_script" 2>/dev/null || true
+        
+        if bash "$nav_script" --sort numeric; then
             print_success "Dynamic navigation built successfully"
         else
             print_warning "Dynamic navigation build failed, using existing navigation"
         fi
     else
-        print_warning "Navigation builder script not found, using existing navigation"
+        print_warning "Navigation builder script not found at $nav_script, using existing navigation"
     fi
 }
 
@@ -376,27 +399,51 @@ build_dynamic_navigation() {
 # Setup Python virtual environment
 #######################################
 setup_python_env() {
+    print_info "Checking Python environment..."
+    
+    # 1. Activate VENV if exists
     if [[ -d "$VENV_DIR" ]]; then
-        print_info "Virtual environment found, activating..."
-        # shellcheck source=/dev/null
-        source "$VENV_DIR/bin/activate"
-    else
-        print_info "Creating new virtual environment..."
-        python3 -m venv "$VENV_DIR"
-        # shellcheck source=/dev/null
-        source "$VENV_DIR/bin/activate"
-        
-        print_info "Upgrading pip..."
-        pip install --upgrade pip
-        
-        if [[ -f "$REQUIREMENTS_FILE" ]]; then
-            print_info "Installing requirements from $REQUIREMENTS_FILE..."
-            pip install -r "$REQUIREMENTS_FILE"
+        print_info "Virtual environment found in $VENV_DIR, activating..."
+        if [[ -f "$VENV_DIR/Scripts/activate" ]]; then
+            source "$VENV_DIR/Scripts/activate"
+        elif [[ -f "$VENV_DIR/bin/activate" ]]; then
+            source "$VENV_DIR/bin/activate"
         else
-            print_warning "Requirements file not found: $REQUIREMENTS_FILE"
+            print_warning "No activation script found in $VENV_DIR"
+        fi
+    else
+        # 2. Create VENV if missing
+        print_info "Creating new virtual environment in $VENV_DIR..."
+        if command -v python3 >/dev/null 2>&1; then
+            python3 -m venv "$VENV_DIR"
+        else
+            python -m venv "$VENV_DIR"
         fi
         
-        print_success "Virtual environment created and configured"
+        # Activate newly created venv
+        if [[ -f "$VENV_DIR/Scripts/activate" ]]; then
+            source "$VENV_DIR/Scripts/activate"
+        elif [[ -f "$VENV_DIR/bin/activate" ]]; then
+            source "$VENV_DIR/bin/activate"
+        fi
+    fi
+
+    # 3. Ensure pip is up to date and dependencies are installed
+    print_info "Verifying dependencies..."
+    
+    # Check if mkdocs is installed (using python -m to be sure we use the venv's python)
+    if ! python -m mkdocs --version >/dev/null 2>&1; then
+        print_warning "MkDocs not found. Installing dependencies from $REQUIREMENTS_FILE..."
+        
+        if [[ -f "$REQUIREMENTS_FILE" ]]; then
+            python -m pip install --upgrade pip
+            python -m pip install -r "$REQUIREMENTS_FILE"
+        else
+            print_error "Requirements file not found: $REQUIREMENTS_FILE"
+            exit 1
+        fi
+    else
+        print_info "MkDocs is installed."
     fi
 }
 
@@ -476,7 +523,7 @@ main() {
     generate_urls
 
     # Build dynamic navigation
-    build_dynamic_navigation
+    # build_dynamic_navigation
 
     # Update MkDocs configuration
     update_mkdocs_config
@@ -485,7 +532,7 @@ main() {
     build_mkdocs_config
     
     # Build dynamic navigation
-    build_dynamic_navigation
+    # build_dynamic_navigation
     
     # Setup Python environment
     setup_python_env

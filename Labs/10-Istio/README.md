@@ -124,19 +124,14 @@ kubectl get pods -n istio-system
     - `istiod`
     - `istio-ingressgateway`
     - `istio-egressgateway`
-  
 
-```bash
-kubectl get pods -n istio-system
-```
-
-
-  ```plaintext
-  NAME                                    READY   STATUS    RESTARTS   AGE
-  istio-egressgateway-684f5dc857-bzww6    1/1     Running   0          21m
-  istio-ingressgateway-6b5bd79c5c-9n8tg   1/1     Running   0          21m
-  istiod-68885d595-vv2ft                  1/1     Running   0          22m
-  ```
+!!! success "Expected Result"
+    ```text
+    NAME                                    READY   STATUS    RESTARTS   AGE
+    istio-egressgateway-684f5dc857-bzww6    1/1     Running   0          21m
+    istio-ingressgateway-6b5bd79c5c-9n8tg   1/1     Running   0          21m
+    istiod-68885d595-vv2ft                  1/1     Running   0          22m
+    ```
 
 ### Step 03: Install Kiali
 
@@ -169,16 +164,14 @@ kubectl get pods -n istio-system
 ```bash
 kubectl get pods -n istio-system
 ```
-
-- You should see the `Kiali` pod running, along with the `Istio` components from previous step.
-
-```plaintext
-NAME                                    READY   STATUS    RESTARTS   AGE
-istio-egressgateway-684f5dc857-bzww6    1/1     Running   0          28m
-istio-ingressgateway-6b5bd79c5c-9n8tg   1/1     Running   0          28m
-istiod-68885d595-vv2ft                  1/1     Running   0          28m
-kiali-68ccc848b6-j4q28                  1/1     Running   0          27m
-```
+!!! success "Expected Result"
+    ```text
+    NAME                                    READY   STATUS    RESTARTS   AGE
+    istio-egressgateway-684f5dc857-bzww6    1/1     Running   0          28m
+    istio-ingressgateway-6b5bd79c5c-9n8tg   1/1     Running   0          28m
+    istiod-68885d595-vv2ft                  1/1     Running   0          28m
+    kiali-68ccc848b6-j4q28                  1/1     Running   0          27m
+    ```
 
 ---
 

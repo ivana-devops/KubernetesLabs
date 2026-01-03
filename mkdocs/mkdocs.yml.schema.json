@@ -1,1 +1,306 @@
-404: Not Found
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MkDocs Configuration",
+    "description": "Configuration file for MkDocs",
+    "type": "object",
+    "properties": {
+        "site_name": {
+            "type": "string",
+            "description": "The name of the site."
+        },
+        "site_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the site."
+        },
+        "repo_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the repository."
+        },
+        "repo_name": {
+            "type": "string",
+            "description": "The name of the repository."
+        },
+        "site_description": {
+            "type": "string",
+            "description": "A description of the site."
+        },
+        "site_author": {
+            "type": "string",
+            "description": "The author of the site."
+        },
+        "copyright": {
+            "type": "string",
+            "description": "The copyright information."
+        },
+        "google_analytics": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Google Analytics configuration."
+        },
+        "remote_branch": {
+            "type": "string",
+            "default": "gh-pages",
+            "description": "The key of the remote branch to push to."
+        },
+        "remote_name": {
+            "type": "string",
+            "default": "origin",
+            "description": "The name of the remote to push to."
+        },
+        "theme": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "description": "The name of the theme."
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "The name of the theme."
+                        },
+                        "custom_dir": {
+                            "type": "string",
+                            "description": "The directory containing the custom theme."
+                        },
+                        "static_templates": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "include_sidebar": {
+                            "type": "boolean"
+                        },
+                        "include_search_page": {
+                            "type": "boolean"
+                        },
+                        "highlightjs": {
+                            "type": "boolean"
+                        },
+                        "hljs_languages": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "hljs_style": {
+                            "type": "string"
+                        },
+                        "favicon": {
+                            "type": "string"
+                        },
+                        "logo": {
+                            "type": "string"
+                        },
+                        "features": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "font": {
+                            "type": "object"
+                        },
+                        "palette": {
+                            "type": "array"
+                        },
+                        "language": {
+                            "type": "string"
+                        },
+                        "direction": {
+                            "type": "string",
+                            "enum": [
+                                "ltr",
+                                "rtl"
+                            ]
+                        },
+                        "icon": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ]
+                }
+            ]
+        },
+        "docs_dir": {
+            "type": "string",
+            "default": "docs",
+            "description": "The directory containing the documentation source markdown files."
+        },
+        "site_dir": {
+            "type": "string",
+            "default": "site",
+            "description": "The directory where the built site will be output."
+        },
+        "extra_css": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of extra CSS files to include."
+        },
+        "extra_javascript": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of extra JavaScript files to include."
+        },
+        "extra_templates": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of extra Jinja templates to include."
+        },
+        "markdown_extensions": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object"
+                        }
+                    }
+                ]
+            },
+            "description": "A list of Markdown extensions to use."
+        },
+        "nav": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "$ref": "#/properties/nav"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "description": "The navigation structure."
+        },
+        "pages": {
+            "type": "array",
+            "description": "Deprecated. Use nav instead."
+        },
+        "plugins": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object"
+                    }
+                ]
+            },
+            "description": "A list of plugins to use."
+        },
+        "hooks": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of hook scripts."
+        },
+        "watch": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A list of extra paths to watch."
+        },
+        "validation": {
+            "type": "object",
+            "properties": {
+                "nav": {
+                    "type": "object",
+                    "properties": {
+                        "omitted_files": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        },
+                        "not_found": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        },
+                        "absolute_links": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        }
+                    }
+                },
+                "links": {
+                    "type": "object",
+                    "properties": {
+                        "not_found": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        },
+                        "absolute_links": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        },
+                        "unrecognized_links": {
+                            "type": "string",
+                            "enum": [
+                                "ignore",
+                                "warn",
+                                "info"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "extra": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Extra configuration options."
+        }
+    }
+}

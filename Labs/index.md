@@ -72,11 +72,11 @@ Welcome to the hands-on Kubernetes labs! This comprehensive series of labs will 
 | Lab | Topic | Description |
 |-----|-------|-------------|
 | [22](22-Rancher/README.md) | Rancher | Multi-cluster management platform |
-| [26](26-k9s/README.md) | k9s | Terminal-based Kubernetes UI |
+| [26](26-k9s-Basics/README.md) | k9s | Terminal-based Kubernetes UI |
 | [27](27-krew/README.md) | Krew | kubectl plugin manager |
 | [28](28-kubeapps/README.md) | Kubeapps | Application dashboard for Kubernetes |
 | [29](29-kubeadm/README.md) | Kubeadm | Bootstrap Kubernetes clusters |
-| [30](30-k9s/README.md) | k9s (Advanced) | Advanced k9s usage |
+| [30](30-k9s-Advanced/README.md) | k9s (Advanced) | Advanced k9s usage |
 
 ## 🎯 Learning Path
 

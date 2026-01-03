@@ -28,14 +28,17 @@
 
 ### Step 01 - Create namespace and clear previous data (if there is any)
 
-```sh
-# If the namespace already exist and contains data from previous steps, lets clean it
+```bash
+# If the namespace already exists, let's clean it
 kubectl delete namespace codewizard
 
 # Create the desired namespace [codewizard]
-$ kubectl create namespace codewizard
-namespace/codewizard created
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
 
 !!! warning "Note"
     **You can skip section number 02. if you don't wish to build and push your docker container**
@@ -99,79 +102,44 @@ ENTRYPOINT  node server.js
 <br>
 
 ##### 3. Build the docker container
-```sh
-# The container name is prefixed with the Dockerhub account
-# !!! You should replace the prefix to your dockerhub account
-# In the sample the username is `nirgeier`
-$ docker build . -t nirgeier/k8s-secrets-sample
-
-# The output should be similar to this
-Sending build context to Docker daemon   12.8kB
-Step 1/6 : FROM        node
-latest: Pulling from library/node
-2587235a7635: Pull complete
-953fe5c215cb: Pull complete
-d4d3f270c7de: Pull complete
-ed36dafe30e3: Pull complete
-00e912dd434d: Pull complete
-dd25ee3ea38e: Pull complete
-7e835b17ced9: Pull complete
-79ae84aa9e91: Pull complete
-629164f2c016: Pull complete
-Digest: sha256:3a9d0636755ebcc8e24148a148b395c1608a94bb1b4a219829c9a3f54378accb
-Status: Downloaded newer image for node:latest
- ---> d6740064592f
-Step 2/6 : EXPOSE      5000
- ---> Running in 060220eaa65b
-Removing intermediate container 060220eaa65b
- ---> 68262a3e6741
-Step 3/6 : ENV         LANGUAGE    Hebrew
- ---> Running in c404e7e6fa16
-Removing intermediate container c404e7e6fa16
- ---> 45fcf1fe03aa
-Step 4/6 : ENV         TOKEN       Hard-To-Guess
- ---> Running in d3c1491f9de5
-Removing intermediate container d3c1491f9de5
- ---> 71e8acdbdab2
-Step 5/6 : COPY        server.js .
- ---> 42233d2b66a8
-Step 6/6 : ENTRYPOINT  node server.js
- ---> Running in 223629e16589
-Removing intermediate container 223629e16589
- ---> f5cbb1895d66
-Successfully built f5cbb1895d66
-Successfully tagged nirgeier/k8s-secrets-sample:latest
+```bash
+# Replace the prefix with your Dockerhub account
+docker build . -t nirgeier/k8s-secrets-sample
 ```
+!!! success "Expected Result"
+    ```text
+    Successfully built f5cbb1895d66
+    Successfully tagged nirgeier/k8s-secrets-sample:latest
+    ```
 
 <br>
 
 ##### 4. Test the container
 
-```sh
-# Run the docker container which you build earlier,
-# replace the name if you used your own name
-# and check the response from the server.
-# It should print out the variables which were defined inside the DockerFile 
-$ docker run -d -p5000:5000 nirgeier/k8s-secrets-sample --name server
+```bash
+# Run the container
+docker run -d -p5000:5000 --name server nirgeier/k8s-secrets-sample
 
-# Get the response from the container 
-# The port is the one which we exposed inside the DockerFile
+# Test the response
 curl 127.0.0.1:5000
-
-# Response:
-Language: Hebrew
-Token   : Hard-To-Guess
 ```
+!!! success "Expected Result"
+    ```text
+    Language: Hebrew
+    Token   : Hard-To-Guess
+    ```
 
 <br>
 
 - Stop the container
 
-```sh
-# Stop the running container
-# We are using the name which we passed in the `docker run` command --name <container name>
+```bash
 docker stop server
 ```
+!!! success "Expected Result"
+    ```text
+    server
+    ```
 
 - Push the container to your docker hub account if you wish
 
@@ -238,11 +206,14 @@ spec:
 <br>
 
 ##### 2. Deploy to cluster
-```sh
-$ kubectl apply -n codewizard -f variables-from-yaml.yaml
-deployment.apps/codewizard-secrets configured
-service/codewizard-secrets created
+```bash
+kubectl apply -n codewizard -f variables-from-yaml.yaml
 ```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/codewizard-secrets configured
+    service/codewizard-secrets created
+    ```
 <br>
 
 ##### 3. Test the app
@@ -250,27 +221,19 @@ service/codewizard-secrets created
 - We will need a second container for executing the curl request.
 - We will use a `busyBox image` for this purpose.
 
-```sh
-# grab the name of the pod
-$ kubectl get pods -n codewizard
+```bash
+# Get the pod name
+kubectl get pods -n codewizard
 
-# Output
-NAME                                  READY   STATUS    RESTARTS   AGE
-codewizard-secrets-56f556c758-2mknc   1/1     Running   0          6m27s
-
-# Login to the container and test the reponse
-# kubectl exec -it -n codewizard <pod name> -- sh
-# For the above output we will use
-kubectl exec -it -n codewizard codewizard-secrets-56f556c758-2mknc -- sh
-
-# Now get the server response (from inside the container)
-$ curl localhost:5000                    
-
-# Response
-Language: Hebrew
-Token   : Hard-To-Guess2
-
+# Login and test
+kubectl exec -it -n codewizard <pod name> -- sh
+curl localhost:5000
 ```
+!!! success "Expected Result"
+    ```text
+    Language: Hebrew
+    Token   : Hard-To-Guess2
+    ```
 
 ---
 
@@ -278,53 +241,17 @@ Token   : Hard-To-Guess2
 
 ##### 1. Create the desired secret and config map for this lab
 
-```sh
-# Create the secret 
-#   Key   = Token
-#   Value = Hard-To-Guess3
-$ kubectl create -n codewizard secret generic token --from-literal=TOKEN=Hard-To-Guess3
-secret/token created
+```bash
+# Create Secret
+kubectl create -n codewizard secret generic token --from-literal=TOKEN=Hard-To-Guess3
 
-# Create the config map 
-#   Key   = LANGUAGE
-#   Value = English
-$ kubectl create -n codewizard configmap language --from-literal=LANGUAGE=English
-configmap/language created
+# Create ConfigMap
+kubectl create -n codewizard configmap language --from-literal=LANGUAGE=English
 
-# Verify that the resources have been created:
-$ kubectl get secrets,cm -n codewizard
-NAME                         TYPE                                  DATA   AGE
-secret/default-token-8hzhn   kubernetes.io/service-account-token   3      14m
-secret/token                 Opaque                                1      80s
-NAME                         DATA   AGE
-configmap/kube-root-ca.crt   1      14m
-configmap/language           1      44s
-
-# Like other resources we can use describe to view the resource
-$ kubectl describe secret token -n codewizard
-Name:         token
-Namespace:    codewizard
-Labels:       <none>
-Annotations:  <none>
-
-Type:  Opaque <----- The content is stored as BASE64
-
-Data
-====
-TOKEN:  14 bytes
-
-# Same way for the ConfigMap
-$ kubectl describe cm language -n codewizard
-Name:         language
-Namespace:    codewizard
-Labels:       <none>
-Annotations:  <none>
-Data
-====
-LANGUAGE:
-----
-English
-Events:  <none>
+# Verify
+kubectl get secrets,cm -n codewizard
+kubectl describe secret token -n codewizard
+kubectl describe cm language -n codewizard
 ```
 
 <br>
@@ -351,11 +278,14 @@ Events:  <none>
 
 ##### 3. Update the deployment to read values from K8S resources
 
-```sh
-$ kubectl apply -n codewizard -f variables-from-secrets.yaml
-deployment.apps/codewizard-secrets configured
-service/codewizard-secrets unchanged
+```bash
+kubectl apply -n codewizard -f variables-from-secrets.yaml
 ```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/codewizard-secrets configured
+    service/codewizard-secrets unchanged
+    ```
 <br>
 
 ##### 4. Test the changes
@@ -363,18 +293,16 @@ service/codewizard-secrets unchanged
 
 - Refer to [step 3.3](#3-test-the-app) for testing your server
 
-  ```sh
-  # Login to the server
-  # In this sample, the pod name is: codewizard-secrets-76d99bdc54-s66vl
-  kubectl exec -it codewizard-secrets-76d99bdc54-s66vl -n codewizard -- sh
-
-  # Test the changes to verify that they are set from the Secret/ConfigMap
-  curl localhost:5000
-
-  # Out put should be
-  Language: English
-  Token   : Hard-To-Guess3
-  ```
+  ```bash
+# Replace with your actual pod name
+kubectl exec -it <pod_name> -n codewizard -- sh
+curl localhost:5000
+```
+!!! success "Expected Result"
+    ```text
+    Language: English
+    Token   : Hard-To-Guess3
+    ```
 
 ---
 
@@ -385,9 +313,8 @@ service/codewizard-secrets unchanged
 
 - To update existing secrets or ConfigMap:
 
-```
-$ kubectl create secret generic token -n codewizard --from-literal=Token=Token3 -o yaml --dry-run=client | kubectl replace -f -
-secret/token replaced
+```bash
+kubectl create secret generic token -n codewizard --from-literal=Token=Token3 -o yaml --dry-run=client | kubectl replace -f -
 ```
 
 - Test your server and verify that you see the old values.

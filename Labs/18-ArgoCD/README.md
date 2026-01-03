@@ -130,17 +130,15 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```bash
 kubectl get pods -n argocd
 ```
-
-- Expected output should show all pods in **Running** status:
-
-```plaintext
-NAME                                  READY   STATUS    RESTARTS   AGE
-argocd-application-controller-0       1/1     Running   0          2m
-argocd-dex-server-xxx                 1/1     Running   0          2m
-argocd-redis-xxx                      1/1     Running   0          2m
-argocd-repo-server-xxx                1/1     Running   0          2m
-argocd-server-xxx                     1/1     Running   0          2m
-```
+!!! success "Expected Result"
+    ```text
+    NAME                                  READY   STATUS    RESTARTS   AGE
+    argocd-application-controller-0       1/1     Running   0          2m
+    argocd-dex-server-xxx                 1/1     Running   0          2m
+    argocd-redis-xxx                      1/1     Running   0          2m
+    argocd-repo-server-xxx                1/1     Running   0          2m
+    argocd-server-xxx                     1/1     Running   0          2m
+    ```
 
 ### Step 04 - Expose ArgoCD Server
 
@@ -445,14 +443,13 @@ argocd app get guestbook
 # View all deployment revisions
 argocd app history guestbook
 ```
-
-Example output:
-```plaintext
-ID  DATE                 REVISION
-0   2025-11-10 10:15:30  abc123 (HEAD)
-1   2025-11-10 10:20:45  def456
-2   2025-11-10 10:25:30  ghi789
-```
+!!! success "Expected Result"
+    ```text
+    ID  DATE                 REVISION
+    0   2025-11-10 10:15:30  abc123 (HEAD)
+    1   2025-11-10 10:20:45  def456
+    2   2025-11-10 10:25:30  ghi789
+    ```
 
 ### Step 02 - Rollback to Previous Revision
 

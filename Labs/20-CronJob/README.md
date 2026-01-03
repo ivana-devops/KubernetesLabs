@@ -93,16 +93,14 @@ kubectl get pods
 
 - Get the name of a pod created by the CronJob, then view its logs:
 
-```sh
+```bash
 kubectl logs <pod-name>
 ```
-
-Example output:
-
-```text
-Mon Nov 10 12:00:00 UTC 2025
-Hello from the Kubernetes CronJob!
-```
+!!! success "Expected Result"
+    ```text
+    Mon Nov 10 12:00:00 UTC 2025
+    Hello from the Kubernetes CronJob!
+    ```
 
 
 ### Step 06 - Clean Up

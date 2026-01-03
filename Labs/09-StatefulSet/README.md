@@ -72,14 +72,17 @@
 
 ### Step 01 - Create namespace and clear previous data if there is any
 
-```sh
+```bash
 # If the namespace already exist and contains data form previous steps, lets clean it
 kubectl delete namespace codewizard
 
 # Create the desired namespace [codewizard]
-$ kubectl create namespace codewizard
-namespace/codewizard created
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
 
 ### Step 02 - Create and test the Stateful application
 
@@ -260,73 +263,81 @@ psql \
 
 #### 04.01. Scale down the `Statefulset` to 0
 
-```sh
+```bash
 # scale down the `Statefulset` to 0
 kubectl scale statefulset postgres -n codewizard --replicas=0
 ```
 
 #### 04.02. Verify that the pods Terminated
 
-```sh
+```bash
 # Wait until the pods will be terminated
 kubectl get pods -n codewizard --watch
-NAME         READY   STATUS    RESTARTS   AGE
-postgres-0   1/1     Running   0          32m
-postgres-0   1/1     Terminating   0      32m
-postgres-0   0/1     Terminating   0      32m
-postgres-0   0/1     Terminating   0      33m
-postgres-0   0/1     Terminating   0      33m
 ```
+!!! success "Expected Result"
+    ```text
+    NAME         READY   STATUS    RESTARTS   AGE
+    postgres-0   1/1     Running   0          32m
+    postgres-0   1/1     Terminating   0      32m
+    postgres-0   0/1     Terminating   0      32m
+    postgres-0   0/1     Terminating   0      33m
+    postgres-0   0/1     Terminating   0      33m
+    ```
 
 ### 04.03. Verify that the DB is not reachable
 
 - If the DB is not reachable it mean that all the pods are down
 
-```sh
+```bash
 psql \
     -U ${POSTGRES_USER} \
     -h ${CLUSTER_IP} \
     -d ${POSTGRES_DB} \
     -p ${NODE_PORT} \
     -c "SELECT count(*) FROM stateful"
-
-# You should get output similar to this one:
-psql: error: could not connect to server: Connection refused
-        Is the server running on host "192.168.49.2" and accepting
-        TCP/IP connections on port 32570?
 ```
+!!! success "Expected Result"
+    ```text
+    psql: error: could not connect to server: Connection refused
+            Is the server running on host "192.168.49.2" and accepting
+            TCP/IP connections on port 32570?
+    ```
 
 ### Step 05 - Scale up again and verify that we still have the previous data
 
 #### 05.01. scale up the `Statefulset` to 1 or more
 
-```sh
+```bash
 # scale up the `Statefulset`
 kubectl scale statefulset postgres -n codewizard --replicas=1
 ```
 
 #### 05.02. Verify that the pods is in Running status
 
-```sh
+```bash
 kubectl get pods -n codewizard --watch
-NAME         READY   STATUS    RESTARTS   AGE
-postgres-0   1/1     Running   0          5s
 ```
+!!! success "Expected Result"
+    ```text
+    NAME         READY   STATUS    RESTARTS   AGE
+    postgres-0   1/1     Running   0          5s
+    ```
 
 #### 05.03. Verify that the pods is using the previous data
 
-```sh
+```bash
 psql \
     -U ${POSTGRES_USER} \
     -h ${CLUSTER_IP} \
     -d ${POSTGRES_DB} \
     -p ${NODE_PORT} \
     -c "SELECT count(*) FROM stateful"
-# The output should be similar to this one
-
- count
--------
-     2
-(1 row)
 ```
+!!! success "Expected Result"
+    ```text
+     count
+    -------
+         2
+    (1 row)
+    ```
 

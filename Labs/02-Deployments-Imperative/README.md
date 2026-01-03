@@ -29,10 +29,13 @@
 
 - As completed in the previous lab, create the desired namespace [codewizard]:
 
-```sh
-$ kubectl create namespace codewizard
-namespace/codewizard created
+```bash
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
 
 - In order to set this is as the default namespace, please refer to <a href="../01-Namespace#2-setting-the-default-namespace-for-kubectl">set default namespace</a>.
 
@@ -40,28 +43,31 @@ namespace/codewizard created
 
 ### Step 02 - Deploy Multitool Image
 
-```sh
-# Deploy the first container
-$ kubectl create deployment multitool -n codewizard --image=praqma/network-multitool
-deployment.apps/multitool created
+```bash
+kubectl create deployment multitool -n codewizard --image=praqma/network-multitool
 ```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/multitool created
+    ```
 
 - `kubectl create deployment` actually creating a replica set for us.
 - We can verify it by running:
 
+```bash
+kubectl get all -n codewizard
 ```
-$ kubectl get all -n codewizard
+!!! success "Expected Result"
+    ```text
+    NAME                                    READY    UP-TO-DATE  AVAILABLE
+    deployment.apps/multitool               1/1      1           1
 
-## Expected output:
-NAME                                    READY    UP-TO-DATE  AVAILABLE
-deployment.apps/multitool               1/1      1           1
+    NAME                                    DESIRED  CURRENT     READY
+    replicaset.apps/multitool-7885b5f94f    1        1           1
 
-NAME                                    DESIRED  CURRENT     READY
-replicaset.apps/multitool-7885b5f94f    1        1           1
-
-NAME                                    READY    STATUS      RESTARTS
-pod/multitool-7885b5f94f-9s7xh          1/1      Running     0
-```
+    NAME                                    READY    STATUS      RESTARTS
+    pod/multitool-7885b5f94f-9s7xh          1/1      Running     0
+    ```
 
 ---
 
@@ -72,23 +78,24 @@ pod/multitool-7885b5f94f-9s7xh          1/1      Running     0
 
 #### Create a service using `kubectl expose`
 
-```sh
-# "Expose" the desired port for incoming traffic
-# This command is equivalent to declare a `kind: Service` in YAML file
-
-$ kubectl expose deployment -n codewizard multitool --port 80 --type NodePort
-service/multitool exposed
+```bash
+kubectl expose deployment -n codewizard multitool --port 80 --type NodePort
 ```
+!!! success "Expected Result"
+    ```text
+    service/multitool exposed
+    ```
 
 - Verify that the service have been created by running:
 
-```sh
-$ kubectl get service -n codewizard
-
-# The output should be something like
-NAME                TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-service/multitool   NodePort   10.102.73.248   <none>        80:31418/TCP   3s
+```bash
+kubectl get service -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    NAME                TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+    service/multitool   NodePort   10.102.73.248   <none>        80:31418/TCP   3s
+    ```
 <br>
 
 #### Find the port & the IP which was assigned to our pod by the cluster.
@@ -97,24 +104,26 @@ service/multitool   NodePort   10.102.73.248   <none>        80:31418/TCP   3s
   - Port: In the above sample its `31418` [`80:31418/TCP`]
   - IP: we will need to grab the cluster ip using `kubectl cluster-info`
 
-```sh
-
-# get the IP
-$ kubectl cluster-info
-
-# You should get output similar to this one
-Kubernetes control plane is running at https://192.168.49.2:8443
-KubeDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-
-# Programmatically get the port and the IP
-CLUSTER_IP=$(kubectl get nodes \
-            --selector=node-role.kubernetes.io/control-plane \
-            -o jsonpath='{$.items[*].status.addresses[?(@.type=="InternalIP")].address}')
-
-NODE_PORT=$(kubectl get -o \
-            jsonpath="{.spec.ports[0].nodePort}" \
-            services multitool -n codewizard)
+```bash
+kubectl cluster-info
 ```
+!!! success "Expected Result"
+    ```text
+    Kubernetes control plane is running at https://192.168.49.2:8443
+    KubeDNS is running at https://192.168.49.2:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+    ```
+
+!!! tip "Automation Script"
+    ```bash
+    # Programmatically get the port and the IP
+    CLUSTER_IP=$(kubectl get nodes \
+                --selector=node-role.kubernetes.io/control-plane \
+                -o jsonpath='{$.items[*].status.addresses[?(@.type=="InternalIP")].address}')
+
+    NODE_PORT=$(kubectl get -o \
+                jsonpath="{.spec.ports[0].nodePort}" \
+                services multitool -n codewizard)
+    ```
 
 - In this sample the cluster-ip is `192.168.49.2`
 
@@ -125,13 +134,16 @@ NODE_PORT=$(kubectl get -o \
 - Test to see if the deployment worked using the `ip address and port number` we have retrieved above.
 - Execute `curl` with the following parameters: `http://${CLUSTER_IP}:${NODE_PORT}`
 
-```sh
+```bash
 curl http://${CLUSTER_IP}:${NODE_PORT}
-
-# Or in the above sample
-curl 192.168.49.2:30436
-
-# The output should be similar to this:
-Praqma Network MultiTool (with NGINX) ...
 ```
+!!! success "Expected Result"
+    ```text
+    Praqma Network MultiTool (with NGINX) ...
+    ```
+
+!!! note "Manual Example"
+    ```bash
+    curl 192.168.49.2:30436
+    ```
 - If you get the above output, congratulations! You have successfully created a deployment using imperative commands.

@@ -30,13 +30,23 @@
 
 - To get started with `Nginx-Ingress`, we will deploy out previous app:
 
-```sh
-# Create 3 containers
-$ kubectl create deployment ingress-pods --image=nirgeier/k8s-secrets-sample --replicas=3
-
-# Expose the service
-$ kubectl expose deployment ingress-pods --port=5000
+```bash
+# Create deployment with 3 replicas
+kubectl create deployment ingress-pods --image=nirgeier/k8s-secrets-sample --replicas=3
 ```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/ingress-pods created
+    ```
+
+```bash
+# Expose the service
+kubectl expose deployment ingress-pods --port=5000
+```
+!!! success "Expected Result"
+    ```text
+    service/ingress-pods exposed
+    ```
 
 
 ---
@@ -116,28 +126,28 @@ spec:
 -   The certificate is in the same folder as this file
 -   The certificate is for the hostname: `ingress.local`
 
-```sh
-# If you wish to create the certificate use this script
-### ---> The common Name fields is your host for later on
-###      Common Name (e.g. server FQDN or YOUR name) []:
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certificate.key -out certificate.crt
+```bash
+# Create the certificate
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certificate.key -out certificate.crt
 
-# Create a pem file
-# The purpose of the DH parameters is to exchange secrets
-$ openssl dhparam -out certificate.pem 2048
+# Create DH parameters
+openssl dhparam -out certificate.pem 2048
 ```
 
 - Store the certificate in secret:
 
-```sh
-# Store the certificate
-$ kubectl create secret tls tls-certificate --key certificate.key --cert certificate.crt
-secret/tls-certificate created
+```bash
+# Store TLS certificate
+kubectl create secret tls tls-certificate --key certificate.key --cert certificate.crt
 
-# Store the DH parameters
-$ kubectl create secret generic tls-dhparam --from-file=certificate.pem
-secret/tls-dhparam created
+# Store DH parameters
+kubectl create secret generic tls-dhparam --from-file=certificate.pem
 ```
+!!! success "Expected Result"
+    ```text
+    secret/tls-certificate created
+    secret/tls-dhparam created
+    ```
 
 ---
 
@@ -174,7 +184,10 @@ spec:
 
 - The `Ingress` is not enabled by default, so we have to "turn it on":
 
-```sh
-$ minikube addons enable ingress
-✅  ingress was successfully enabled
+```bash
+minikube addons enable ingress
 ```
+!!! success "Expected Result"
+    ```text
+    ✅  ingress was successfully enabled
+    ```

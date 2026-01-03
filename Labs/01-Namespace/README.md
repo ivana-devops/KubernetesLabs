@@ -27,14 +27,19 @@
 
 ### Step 01 - Create Namespace
 
-```sh
-# In this sample `codewizard` is the desired namespace
-$ kubectl create namespace codewizard
-namespace/codewizard created
-
-### !!! Try to create the following namespace (with _ & -), and see what happens:
-$ kubectl create namespace my_namespace-
+```bash
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
+
+!!! note "Challenge"
+    Try to create the following namespace (with `_` & `-`), and see what happens:
+    ```bash
+    kubectl create namespace my_namespace-
+    ```
 
 ---
 
@@ -42,23 +47,28 @@ $ kubectl create namespace my_namespace-
 
 - To set the default namespace run:
 
-```sh
-$ kubectl config set-context $(kubectl config current-context) --namespace=codewizard
-
-Context minikube modified.
+```bash
+kubectl config set-context $(kubectl config current-context) --namespace=codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    Context minikube modified.
+    ```
 
 ---
 
 ### Step 03 - Verify that you've updated the namespace
 
-```sh
-$ kubectl config get-contexts
-CURRENT     NAME                 CLUSTER          AUTHINFO         NAMESPACE
-            docker-desktop       docker-desktop   docker-desktop
-            docker-for-desktop   docker-desktop   docker-desktop
-*           minikube             minikube         minikube         codewizard
+```bash
+kubectl config get-contexts
 ```
+!!! success "Expected Result"
+    ```text
+    CURRENT     NAME                 CLUSTER          AUTHINFO         NAMESPACE
+                docker-desktop       docker-desktop   docker-desktop
+                docker-for-desktop   docker-desktop   docker-desktop
+    *           minikube             minikube         minikube         codewizard
+    ```
 
 ---
 

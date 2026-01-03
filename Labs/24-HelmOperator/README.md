@@ -73,71 +73,72 @@ operator-sdk                \
 
 - The command will generate the following structure:
 
-```sh
-.
-├── Dockerfile
-├── Makefile
-├── PROJECT
-├── config
-│   ├── crd
-│   │   ├── bases
-│   │   │   └── demo.codewizard.co.il_nginxes.yaml
-│   │   └── kustomization.yaml
-│   ├── default
-│   │   ├── kustomization.yaml
-│   │   ├── manager_auth_proxy_patch.yaml
-│   │   └── manager_config_patch.yaml
-│   ├── manager
-│   │   ├── controller_manager_config.yaml
-│   │   ├── kustomization.yaml
-│   │   └── manager.yaml
-│   ├── manifests
-│   │   └── kustomization.yaml
-│   ├── prometheus
-│   │   ├── kustomization.yaml
-│   │   └── monitor.yaml
-│   ├── rbac
-│   │   ├── auth_proxy_client_clusterrole.yaml
-│   │   ├── auth_proxy_role.yaml
-│   │   ├── auth_proxy_role_binding.yaml
-│   │   ├── auth_proxy_service.yaml
-│   │   ├── kustomization.yaml
-│   │   ├── leader_election_role.yaml
-│   │   ├── leader_election_role_binding.yaml
-│   │   ├── nginx_editor_role.yaml
-│   │   ├── nginx_viewer_role.yaml
-│   │   ├── role.yaml
-│   │   ├── role_binding.yaml
-│   │   └── service_account.yaml
-│   ├── samples
-│   │   ├── demo_v1alpha1_nginx.yaml
-│   │   └── kustomization.yaml
-│   └── scorecard
-│       ├── bases
-│       │   └── config.yaml
-│       ├── kustomization.yaml
-│       └── patches
-│           ├── basic.config.yaml
-│           └── olm.config.yaml
-├── helm-charts
-│   └── nginx
-│       ├── Chart.yaml
-│       ├── templates
-│       │   ├── NOTES.txt
-│       │   ├── _helpers.tpl
-│       │   ├── deployment.yaml
-│       │   ├── hpa.yaml
-│       │   ├── ingress.yaml
-│       │   ├── service.yaml
-│       │   ├── serviceaccount.yaml
-│       │   └── tests
-│       │       └── test-connection.yaml
-│       └── values.yaml
-├── tree.txt
-└── watches.yaml
-
-16 directories, 44 files
-```
+!!! success "Generated Project Structure"
+    ```text
+    .
+    ├── Dockerfile
+    ├── Makefile
+    ├── PROJECT
+    ├── config
+    │   ├── crd
+    │   │   ├── bases
+    │   │   │   └── demo.codewizard.co.il_nginxes.yaml
+    │   │   └── kustomization.yaml
+    │   ├── default
+    │   │   ├── kustomization.yaml
+    │   │   ├── manager_auth_proxy_patch.yaml
+    │   │   └── manager_config_patch.yaml
+    │   ├── manager
+    │   │   ├── controller_manager_config.yaml
+    │   │   ├── kustomization.yaml
+    │   │   └── manager.yaml
+    │   ├── manifests
+    │   │   └── kustomization.yaml
+    │   ├── prometheus
+    │   │   ├── kustomization.yaml
+    │   │   └── monitor.yaml
+    │   ├── rbac
+    │   │   ├── auth_proxy_client_clusterrole.yaml
+    │   │   ├── auth_proxy_role.yaml
+    │   │   ├── auth_proxy_role_binding.yaml
+    │   │   ├── auth_proxy_service.yaml
+    │   │   ├── kustomization.yaml
+    │   │   ├── leader_election_role.yaml
+    │   │   ├── leader_election_role_binding.yaml
+    │   │   ├── nginx_editor_role.yaml
+    │   │   ├── nginx_viewer_role.yaml
+    │   │   ├── role.yaml
+    │   │   ├── role_binding.yaml
+    │   │   └── service_account.yaml
+    │   ├── samples
+    │   │   ├── demo_v1alpha1_nginx.yaml
+    │   │   └── kustomization.yaml
+    │   └── scorecard
+    │       ├── bases
+    │       │   └── config.yaml
+    │       ├── kustomization.yaml
+    │       └── patches
+    │           ├── basic.config.yaml
+    │           └── olm.config.yaml
+    ├── helm-charts
+    │   └── nginx
+    │       ├── Chart.yaml
+    │       ├── templates
+    │       │   ├── NOTES.txt
+    │       │   ├── _helpers.tpl
+    │       │   ├── deployment.yaml
+    │       │   ├── hpa.yaml
+    │       │   ├── ingress.yaml
+    │       │   ├── service.yaml
+    │       │   ├── serviceaccount.yaml
+    │       │   └── tests
+    │       │       └── test-connection.yaml
+    │       └── values.yaml
+    ├── tree.txt
+    └── watches.yaml
+    
+    16 directories, 44 files
+    ```
 
 ### Step 02 - Customize the operator logic
 

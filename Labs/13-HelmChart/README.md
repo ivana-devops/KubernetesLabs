@@ -100,7 +100,7 @@ Here are some of the most common `Helm` commands you'll use when working with `H
 | `helm` **show values** `chart-name`                | Show the default values of a `Helm` chart.                                                                 |
 | `helm` **template**    `chart-name`                | Generate the output of the `Helm` chart.                                                                   |
 | `helm` **lint**        `chart-path`                | This command takes a path to a chart and runs a series of tests to verify that the chart is well-formed.   |
-| `helm` **history**     `chart-name`                | This command takes a path to a chart and runs a series of tests to verify that the chart is well-formed.   |
+| `helm` **history**     `chart-name`                | Show release history.                                                                                    |
 
 
 ---
@@ -123,12 +123,13 @@ Here are some of the most common `Helm` commands you'll use when working with `H
   
   - To confirm that `Helm` is installed correctly, run:
 
-  ```bash
-  $ helm version
-
-  ## Expected output
-  version.BuildInfo{Version:"xx", GitCommit:"xx", GitTreeState:"clean", GoVersion:"xx"}
-  ```
+```bash
+helm version
+```
+!!! success "Expected Result"
+    ```text
+    version.BuildInfo{Version:"xx", GitCommit:"xx", GitTreeState:"clean", GoVersion:"xx"}
+    ```
 
 ---
 
@@ -234,17 +235,18 @@ kubectl get all -n codewizard
 - Perform an `HTTP GET` request, send it to the newly created cluster service.
 - Confirm that the response contains the `CodeWizard Helm Demo` message passed from the `values.yaml` file.
 
-```sh
+```bash
 kubectl run busybox         \
         --image=busybox     \
         --rm                \
         -it                 \
         --restart=Never     \
         -- /bin/sh -c "wget -qO- http://codewizard-helm-demo.codewizard.svc.cluster.local"
-
-### Output: 
-CodeWizard Helm Demo
 ```
+!!! success "Expected Result"
+    ```text
+    CodeWizard Helm Demo
+    ```
 
 ### Step 08 - Upgrade the release to newer version
 
@@ -264,17 +266,18 @@ helm  upgrade \
 - Perform another `HTTP GET` request.
 - Confirm that the response now has the updated message `Helm Rocks`:
 
-```sh
+```bash
 kubectl run busybox         \
         --image=busybox     \
         --rm                \
         -it                 \
         --restart=Never     \
         -- /bin/sh -c "wget -qO- http://codewizard-helm-demo.codewizard.svc.cluster.local"
-
-### Output: 
-Helm Rocks
 ```
+!!! success "Expected Result"
+    ```text
+    Helm Rocks
+    ```
 
 ### Step 10 - History
 
@@ -285,14 +288,15 @@ Helm Rocks
   - `helm history` prints historical revisions for a given release.
   - A default maximum of 256 revisions will be returned.
   
-```sh
-$ helm history codewizard-helm-demo
-
-### Sample output
-REVISION        UPDATED    STATUS          CHART                           APP VERSION     DESCRIPTION     
-1               ...        superseded      codewizard-helm-demo-0.1.0      1.19.7          Install complete
-2               ...        deployed        codewizard-helm-demo-0.1.0      1.19.7          Upgrade complete
+```bash
+helm history codewizard-helm-demo
 ```
+!!! success "Expected Result"
+    ```text
+    REVISION        UPDATED    STATUS          CHART                           APP VERSION     DESCRIPTION     
+    1               ...        superseded      codewizard-helm-demo-0.1.0      1.19.7          Install complete
+    2               ...        deployed        codewizard-helm-demo-0.1.0      1.19.7          Upgrade complete
+    ```
 
 ### Step 11 - Rollback
 
@@ -300,12 +304,13 @@ REVISION        UPDATED    STATUS          CHART                           APP V
 
   - Rollback the `codewizard-helm-demo` release to previous version:
 
-```sh
-$ helm rollback codewizard-helm-demo
-
-### Output:
-Rollback was a success! Happy Helming!
+```bash
+helm rollback codewizard-helm-demo
 ```
+!!! success "Expected Result"
+    ```text
+    Rollback was a success! Happy Helming!
+    ```
 
 - Check again to verify that you get the original message!
 

@@ -103,26 +103,27 @@ minikube start \
 
 - Check to see the Node conditions, if we have any kind of "Pressure", by running the following:
 
-```sh
+```bash
 kubectl describe node minikube | grep MemoryPressure
-
-# Output should be similar to :
-Conditions:
-  Type             Status  Reason                       Message
-  ----             ------  ------                       -------
-  MemoryPressure   False   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  PIDPressure      False   KubeletHasSufficientPID      kubelet has sufficient PID available
-  Ready            True    KubeletReady                 kubelet is posting ready status. AppArmor enabled
-  ...
-Allocated resources:
-  (Total limits may be over 100 percent, i.e., overcommitted.)
-  Resource           Requests    Limits
-  --------           --------    ------
-  cpu                750m (37%)  0 (0%)
-  memory             140Mi (6%)  340Mi (16%)
-  ephemeral-storage  0 (0%)      0 (0%)  
 ```
+!!! success "Expected Result"
+    ```text
+    Conditions:
+      Type             Status  Reason                       Message
+      ----             ------  ------                       -------
+      MemoryPressure   False   KubeletHasSufficientMemory   kubelet has sufficient memory available
+      DiskPressure     False   KubeletHasNoDiskPressure     kubelet has no disk pressure
+      PIDPressure      False   KubeletHasSufficientPID      kubelet has sufficient PID available
+      Ready            True    KubeletReady                 kubelet is posting ready status. AppArmor enabled
+      ...
+    Allocated resources:
+      (Total limits may be over 100 percent, i.e., overcommitted.)
+      Resource           Requests    Limits
+      --------           --------    ------
+      cpu                750m (37%)  0 (0%)
+      memory             140Mi (6%)  340Mi (16%)
+      ephemeral-storage  0 (0%)      0 (0%)  
+    ```
 
 ### Step 03 - Create 3 Pods using 50 MB each
 
@@ -156,10 +157,11 @@ kubectl apply -f resources/50MB-ram.yaml
 
 - Now let's check the Node conditions again to see if we have `MemoryPressure`:
 
-```sh
-$ kubectl describe node minikube | grep MemoryPressure
-
-# Output should be similar to 
-MemoryPressure   False   ...   KubeletHasSufficientMemory   kubelet has sufficient memory available
+```bash
+kubectl describe node minikube | grep MemoryPressure
 ```
+!!! success "Expected Result"
+    ```text
+    MemoryPressure   False   ...   KubeletHasSufficientMemory   kubelet has sufficient memory available
+    ```
 - As we can see, we still have `sufficient memory available`.

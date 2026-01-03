@@ -24,7 +24,9 @@
 ```bash
 # Install Kind using Homebrew
 brew install kind
+```
 
+```bash
 # Verify installation
 kind version
 ```
@@ -59,42 +61,38 @@ Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](htt
 
 ### Step 02 - Create Kind cluster
 
-```sh
+```bash
 kind create cluster
 ```
+!!! success "Expected Result"
+    ```text
+    Creating cluster "kind" ...
+     • Ensuring node image (kindest/node:v1.27.3) 🖼
+     • Preparing nodes 📦
+     • Writing configuration 📜
+     • Starting control-plane 🕹️
+     • Installing CNI 🔌
+     • Installing StorageClass 💾
+    Set kubectl context to "kind-kind"
+    You can now use your cluster with:
 
-- You should see an output like this:
+    kubectl cluster-info --context kind-kind
 
-```sh
-Creating cluster "kind" ...
- • Ensuring node image (kindest/node:v1.27.3) 🖼
- • Preparing nodes 📦
- • Writing configuration 📜
- • Starting control-plane 🕹️
- • Installing CNI 🔌
- • Installing StorageClass 💾
-Set kubectl context to "kind-kind"
-You can now use your cluster with:
-
-kubectl cluster-info --context kind-kind
-
-Thanks for using kind! 😊
-```
+    Thanks for using kind! 😊
+    ```
 
 ### Step 03 - Check the Kind cluster status
 
-```sh
+```bash
 kubectl cluster-info
 ```
+!!! success "Expected Result"
+    ```text
+    Kubernetes control plane is running at https://127.0.0.1:6443
+    CoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
-- You should see output similar to this one:
-
-```sh
-Kubernetes control plane is running at https://127.0.0.1:6443
-CoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-
-To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
-```
+    To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+    ```
 
 ### Step 04 - Verify that the cluster is up and running
 
@@ -104,32 +102,31 @@ kubectl cluster-info
 
 - Verify that `kubectl` is installed and configured
 
-```sh
+```bash
 kubectl config view
 ```
-
-- You should get something like the following
-```yaml
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: DATA+OMITTED
-    server: https://127.0.0.1:6443
-  name: kind-kind
-contexts:
-- context:
-    cluster: kind-kind
-    user: kind-kind
-  name: kind-kind
-current-context: kind-kind
-kind: Config
-preferences: {}
-users:
-- name: kind-kind
-  user:
-    client-certificate-data: REDACTED
-    client-key-data: REDACTED
-```
+!!! success "Expected Result"
+    ```yaml
+    apiVersion: v1
+    clusters:
+    - cluster:
+        certificate-authority-data: DATA+OMITTED
+        server: https://127.0.0.1:6443
+      name: kind-kind
+    contexts:
+    - context:
+        cluster: kind-kind
+        user: kind-kind
+      name: kind-kind
+    current-context: kind-kind
+    kind: Config
+    preferences: {}
+    users:
+    - name: kind-kind
+      user:
+        client-certificate-data: REDACTED
+        client-key-data: REDACTED
+    ```
 
 ### Step 05 - Verify that you can "talk" to your cluster
 
@@ -137,10 +134,8 @@ users:
 # Check the nodes in the Kind cluster
 kubectl get nodes
 ```
-
-- You should see output similar to this:
-
-```sh
-NAME                 STATUS   ROLES           AGE    VERSION
-kind-control-plane   Ready    control-plane   2m     v1.27.3
-```
+!!! success "Expected Result"
+    ```text
+    NAME                 STATUS   ROLES           AGE    VERSION
+    kind-control-plane   Ready    control-plane   2m     v1.27.3
+    ```

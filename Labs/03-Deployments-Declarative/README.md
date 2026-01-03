@@ -18,10 +18,13 @@
 
 - As completed in the previous lab, create the desired namespace [codewizard]:
 
-```sh
-$ kubectl create namespace codewizard
-namespace/codewizard created
+```bash
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
 
 - In order to set this is as the default namespace, please refer to <a href="../01-Namespace#2-setting-the-default-namespace-for-kubectl">set default namespace</a>.
 
@@ -61,40 +64,49 @@ spec:
 
 - Create the deployment using the `-f` flag & `--record=true`
 
-  ```
-  $ kubectl apply -n codewizard -f nginx.yaml --record=true
-  deployment.extensions/nginx created
-  ```
+  ```bash
+kubectl apply -n codewizard -f nginx.yaml --record=true
+```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/nginx created
+    ```
 
 ---
 
 ### Step 03 - Verify that the deployment has been created
 
+```bash
+kubectl get deployments -n codewizard
 ```
-$ kubectl get deployments -n codewizard
-NAME        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE
-multitool   1         1         1            1
-nginx       1         1         1            1
-```
+!!! success "Expected Result"
+    ```text
+    NAME        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE
+    multitool   1         1         1            1
+    nginx       1         1         1            1
+    ```
 
 ---
 
 ### Step 04 - Check if the pods are running
 
+```bash
+kubectl get pods -n codewizard
 ```
-$ kubectl get pods -n codewizard
-NAME                         READY   STATUS    RESTARTS
-multitool-7885b5f94f-9s7xh   1/1     Running   0
-nginx-647fb5956d-v8d2w       1/1     Running   0
-```
+!!! success "Expected Result"
+    ```text
+    NAME                         READY   STATUS    RESTARTS
+    multitool-7885b5f94f-9s7xh   1/1     Running   0
+    nginx-647fb5956d-v8d2w       1/1     Running   0
+    ```
 
 ### Step 05 - Playing with K8S replicas
 
 - Let's play with the replica and see K8S in action.
 - Open a second terminal and execute:
 
-```sh
-$ kubectl get pods -n codewizard --watch
+```bash
+kubectl get pods -n codewizard --watch
 ```
 
 ---
@@ -110,36 +122,30 @@ spec:
 
 ### Step 07 - Update the deployment using `kubectl apply`
 
+```bash
+kubectl apply -n codewizard -f nginx.yaml --record=true
 ```
-$ kubectl apply -n codewizard -f nginx.yaml --record=true
-deployment.apps/nginx configured
-```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/nginx configured
+    ```
 <br>
 
 - Switch to the second terminal and you should see something like the following:
 
-```sh
-$ kubectl get pods --watch -n codewizard
-NAME                         READY   STATUS    RESTARTS   AGE
-multitool-74477484b8-dj7th   1/1     Running   0          20m
-nginx-dc8bb9b45-hqdv9        1/1     Running   0          111s
-nginx-dc8bb9b45-vdmp5        0/1     Pending   0          0s
-nginx-dc8bb9b45-28wwq        0/1     Pending   0          0s
-nginx-dc8bb9b45-wkc68        0/1     Pending   0          0s
-nginx-dc8bb9b45-vdmp5        0/1     Pending   0          0s
-nginx-dc8bb9b45-28wwq        0/1     Pending   0          0s
-nginx-dc8bb9b45-x7j4g        0/1     Pending   0          0s
-nginx-dc8bb9b45-wkc68        0/1     Pending   0          0s
-nginx-dc8bb9b45-x7j4g        0/1     Pending   0          0s
-nginx-dc8bb9b45-vdmp5        0/1     ContainerCreating   0          0s
-nginx-dc8bb9b45-28wwq        0/1     ContainerCreating   0          0s
-nginx-dc8bb9b45-wkc68        0/1     ContainerCreating   0          0s
-nginx-dc8bb9b45-x7j4g        0/1     ContainerCreating   0          0s
-nginx-dc8bb9b45-vdmp5        1/1     Running             0          2s
-nginx-dc8bb9b45-28wwq        1/1     Running             0          3s
-nginx-dc8bb9b45-x7j4g        1/1     Running             0          3s
-nginx-dc8bb9b45-wkc68        1/1     Running             0          3s
+```bash
+kubectl get pods --watch -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    NAME                         READY   STATUS    RESTARTS   AGE
+    multitool-74477484b8-dj7th   1/1     Running   0          20m
+    nginx-dc8bb9b45-hqdv9        1/1     Running   0          111s
+    nginx-dc8bb9b45-vdmp5        0/1     Pending   0          0s
+    nginx-dc8bb9b45-28wwq        0/1     Pending   0          0s
+    nginx-dc8bb9b45-wkc68        0/1     Pending   0          0s
+    ...
+    ```
 
 <br>
 - Can you explain what do you see?
@@ -153,7 +159,7 @@ nginx-dc8bb9b45-wkc68        1/1     Running             0          3s
 
 - Scaling down using `kubectl`, and not by editing the `YAML` file:
 
-```sh
+```bash
 kubectl scale -n codewizard --replicas=1 deployment/nginx
 ```
 

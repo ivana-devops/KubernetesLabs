@@ -33,41 +33,47 @@
 
 ### Step 01 - Create namespace and clear previous data if there is any
 
-```sh
-# If the namespace already exists and contains data form previous steps, let's clean it
+```bash
+# If the namespace already exists, let's clean it
 kubectl delete namespace codewizard
 
 # Create the desired namespace [codewizard]
-$ kubectl create namespace codewizard
-namespace/codewizard created
+kubectl create namespace codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    namespace/codewizard created
+    ```
 
 ---
 
 ### Step 02 - Create the required resources for this hand-on
 
-```sh
+```bash
 # Network tools pod
-$ kubectl create deployment -n codewizard multitool --image=praqma/network-multitool
-deployment.apps/multitool created
+kubectl create deployment -n codewizard multitool --image=praqma/network-multitool
 
 # nginx pod
-$ kubectl create deployment -n codewizard nginx --image=nginx
-deployment.apps/nginx created
+kubectl create deployment -n codewizard nginx --image=nginx
 
 # Verify that the pods running
-$ kubectl get all -n codewizard
-
-NAME                             READY   STATUS    RESTARTS   AGE
-pod/multitool-74477484b8-bdrwr   1/1     Running   0          29s
-pod/nginx-6799fc88d8-p2fjn       1/1     Running   0          7s
-NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/multitool   1/1     1            1           30s
-deployment.apps/nginx       1/1     1            1           8s
-NAME                                   DESIRED   CURRENT   READY   AGE
-replicaset.apps/multitool-74477484b8   1         1         1       30s
-replicaset.apps/nginx-6799fc88d8       1         1         1       8s
+kubectl get all -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    deployment.apps/multitool created
+    deployment.apps/nginx created
+
+    NAME                             READY   STATUS    RESTARTS   AGE
+    pod/multitool-74477484b8-bdrwr   1/1     Running   0          29s
+    pod/nginx-6799fc88d8-p2fjn       1/1     Running   0          7s
+    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/multitool   1/1     1            1           30s
+    deployment.apps/nginx       1/1     1            1           8s
+    NAME                                   DESIRED   CURRENT   READY   AGE
+    replicaset.apps/multitool-74477484b8   1         1         1       30s
+    replicaset.apps/nginx-6799fc88d8       1         1         1       8s
+    ```
 <br>
 <br>
 
@@ -86,18 +92,18 @@ replicaset.apps/nginx-6799fc88d8       1         1         1       8s
 
 ### Step 03 - Expose the nginx with ClusterIP
 
-```sh
+```bash
 # Expose the service on port 80
-$ kubectl expose deployment nginx -n codewizard --port 80 --type ClusterIP
-service/nginx exposed
+kubectl expose deployment nginx -n codewizard --port 80 --type ClusterIP
 
-# Check the services and see it's type
-# Grab the ClusterIP - we will use it in the next steps
-$ kubectl get services -n codewizard
-
-NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)
-nginx        ClusterIP   10.109.78.182   <none>        80/TCP
+# Check the services
+kubectl get services -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)
+    nginx        ClusterIP   10.109.78.182   <none>        80/TCP
+    ```
 
 ---
 
@@ -105,14 +111,12 @@ nginx        ClusterIP   10.109.78.182   <none>        80/TCP
 
 - Since the service is a `ClusterIP`, we will test if we can access the service using the multitool pod.
 
-```sh
-# Get the name of the multitool pod to be used
-$ kubectl get pods -n codewizard
-NAME
-multitool-XXXXXX-XXXXX
+```bash
+# Get the name of the multitool pod
+kubectl get pods -n codewizard
 
-# Run an interactive shell inside the network-multitool-container (same concept as with Docker)
-$ kubectl exec -it <pod name> -n codewizard -- sh
+# Run an interactive shell
+kubectl exec -it <pod name> -n codewizard -- sh
 ```
 
 - Connect to the service in **any** of the following ways:
@@ -121,83 +125,40 @@ $ kubectl exec -it <pod name> -n codewizard -- sh
 
 ##### 1. using the IP from the services output. grab the server response:
 
-```sh
-bash-5.0# curl -s <ClusterIP>
+```bash
+curl -s <ClusterIP>
 ```
-
-```html
-# Expected output:
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
-
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-```
+!!! success "Expected Result"
+    ```html
+    <!DOCTYPE html>
+    <html>
+    ...
+    <h1>Welcome to nginx!</h1>
+    ...
+    </html>
+    ```
 
 <br>
 
 ##### 2. Test the nginx using the deployment name - using the service name since its the DNS name behind the scenes
 
-```sh
-bash-5.0# curl -s nginx
+```bash
+curl -s nginx
 ```
-
-```html
-# Expected output:
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Welcome to nginx!</title>
-    <style>
-      body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Welcome to nginx!</h1>
-    <p>
-      If you see this page, the nginx web server is successfully installed and
-      working. Further configuration is required.
-    </p>
-    <p>
-      For online documentation and support please refer to
-      <a href="http://nginx.org/">nginx.org</a>.<br />
-      Commercial support is available at
-      <a href="http://nginx.com/">nginx.com</a>.
-    </p>
-    <p><em>Thank you for using nginx.</em></p>
-  </body>
-</html>
-```
+!!! success "Expected Result"
+    ```html
+    <!DOCTYPE html>
+    <html>
+    ...
+    </html>
+    ```
 
 <br>
 
 ##### 3. using the full DNS name - for every service we have a full `FQDN` (Fully qualified domain name) so we can use it as well
 
-```sh
-# bash-5.0# curl -s <service name>.<namespace>.svc.cluster.local
-bash-5.0# curl -s nginx.codewizard.svc.cluster.local
+```bash
+curl -s nginx.codewizard.svc.cluster.local
 ```
 <br>
 ---
@@ -212,27 +173,30 @@ bash-5.0# curl -s nginx.codewizard.svc.cluster.local
 
 ##### 1. Delete previous service
 
-```sh
-# Delete the existing service from previous steps
-$ kubectl delete svc nginx -n codewizard
-service "nginx" deleted from codewizard namespace
+```bash
+kubectl delete svc nginx -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    service "nginx" deleted
+    ```
 
 <br>
 
 ##### 2. Create `NodePort` service
 
-```sh
-# As before but this time the type is a NodePort
-$ kubectl expose deployment -n codewizard nginx --port 80 --type NodePort
-service/nginx exposed
+```bash
+# Create NodePort service
+kubectl expose deployment -n codewizard nginx --port 80 --type NodePort
 
-# Verify that the type is set to NodePort.
-# This time you should see ClusterIP and port as well
-$ kubectl get svc -n codewizard
-NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)
-nginx        NodePort    100.65.29.172  <none>        80:32593/TCP
+# Verify service
+kubectl get svc -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)
+    nginx        NodePort    100.65.29.172  <none>        80:32593/TCP
+    ```
 <br>
 
 ##### 3. Test the `NodePort` service
@@ -241,16 +205,16 @@ nginx        NodePort    100.65.29.172  <none>        80:32593/TCP
 
 - If you followed the previous labs, you should be able to do it yourself by now......
 
-```sh
-# Tiny clue....
-$ kubectl cluster-info
-$ kubectl get services
-
-# Executing curl <cluster host ip>:<port> you should see the flowing Output
-Welcome to nginx!
-...
-Thank you for using nginx.
+```bash
+kubectl cluster-info
+kubectl get services -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    Welcome to nginx!
+    ...
+    Thank you for using nginx.
+    ```
 
 ---
 
@@ -270,31 +234,35 @@ Thank you for using nginx.
 
 ##### 1. Delete previous service
 
-```sh
-# Delete the existing service from previous steps
-$ kubectl delete svc nginx -n codewizard
-service "nginx" deleted
+```bash
+kubectl delete svc nginx -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    service "nginx" deleted
+    ```
+
+<br>
 <br>
 
 ##### 2. Create `LoadBalancer` Service
 
-```sh
-# As before this time the type is a LoadBalancer
-$ kubectl expose deployment nginx -n codewizard --port 80 --type LoadBalancer
-service/nginx exposed
+```bash
+# Create LoadBalancer Service
+kubectl expose deployment nginx -n codewizard --port 80 --type LoadBalancer
 
-# In real cloud we should se an EXTERNAL-IP and we can access the service
-# via the internet
-$ kubectl get svc
-NAME         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)
-nginx        LoadBalancer   100.69.15.89   35.205.60.29  80:31354/TCP
+# Verify service
+kubectl get svc -n codewizard
 ```
+!!! success "Expected Result"
+    ```text
+    NAME         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)
+    nginx        LoadBalancer   100.69.15.89   35.205.60.29  80:31354/TCP
+    ```
 <br>
 
 ##### 3. Test the `LoadBalancer` Service
 
-```sh
-# Testing load balancer only require us to use the EXTERNAL-IP
-$ curl -s <EXTERNAL-IP>
+```bash
+curl -s <EXTERNAL-IP>
 ```
