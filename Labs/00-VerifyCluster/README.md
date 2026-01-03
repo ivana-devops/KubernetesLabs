@@ -21,11 +21,13 @@
 
 === "🍎 macOS"
 
+    **Install Kind using Homebrew**
     ```bash
-    # Install Kind using Homebrew
     brew install kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
