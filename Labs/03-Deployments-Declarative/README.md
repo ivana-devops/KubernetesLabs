@@ -125,11 +125,11 @@ spec:
 ```bash
 kubectl apply -n codewizard -f nginx.yaml --record=true
 ```
-!!! success "Expected Result"
-    ```text
-    deployment.apps/nginx configured
-    ```
-<br>
+$ kubectl apply -n codewizard -f nginx.yaml --record=true
+deployment.apps/nginx configured
+```
+
+---
 
 - Switch to the second terminal and you should see something like the following:
 

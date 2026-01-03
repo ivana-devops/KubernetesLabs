@@ -2,7 +2,6 @@
 # K8S Hands-on
 
 
-
 ---
 ## Deployment - Imperative
 
@@ -91,12 +90,8 @@ kubectl expose deployment -n codewizard multitool --port 80 --type NodePort
 ```bash
 kubectl get service -n codewizard
 ```
-!!! success "Expected Result"
-    ```text
-    NAME                TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-    service/multitool   NodePort   10.102.73.248   <none>        80:31418/TCP   3s
-    ```
-<br>
+
+---
 
 #### Find the port & the IP which was assigned to our pod by the cluster.
 
@@ -127,7 +122,7 @@ kubectl cluster-info
 
 - In this sample the cluster-ip is `192.168.49.2`
 
-<br>
+---
 
 #### Test the deployment
 
