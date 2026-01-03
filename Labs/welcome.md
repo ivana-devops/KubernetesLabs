@@ -79,36 +79,53 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 ### DevBox Installation
 
 #### 🍎 macOS
+**Install DevBox using Homebrew**
 ```bash
-# Install DevBox using Homebrew
 brew install getdevbox/tap/devbox
+```
 
-# Verify installation
+**Verify installation**
+```bash
 devbox --version
 ```
 #### 🐧 Linux (Ubuntu/Debian)
+**Download and install DevBox**
 ```bash
-# Download and install DevBox
-curl -fsSL https://get.devbox.sh | bash 
-# Restart terminal or run:
-source ~/.bashrc  
-# Verify installation
+curl -fsSL https://get.devbox.sh | bash
+```
+
+**Restart terminal or run:**
+```bash
+source ~/.bashrc
+```
+
+**Verify installation**
+```bash
 devbox --version
 ``` 
 #### 🐧 Linux (CentOS)
+**Download and install DevBox**
 ```bash
-# Download and install DevBox
-curl -fsSL https://get.devbox.sh | bash         
-# Restart terminal or run:
+curl -fsSL https://get.devbox.sh | bash
+```
+
+**Restart terminal or run:**
+```bash
 source ~/.bashrc
-# Verify installation
+```
+
+**Verify installation**
+```bash
 devbox --version
 ```
 #### 🪟 Windows
+**Install DevBox using Scoop**
 ```powershell
-# Install DevBox using Scoop
 scoop install devbox
-# Verify installation
+```
+
+**Verify installation**
+```powershell
 devbox --version
 ```
 ---
@@ -117,43 +134,63 @@ devbox --version
 
 #### 🍎 macOS
 
+**Install orbstack**
 ```bash
-# Install orbstack
 brew install --cask orbstack
+```
 
-# Start orbstack
+**Start orbstack**
+```bash
 open -a orbstack
 ```
 
 #### 🐧 Linux (Ubuntu/Debian)
 
+**Update package index**
 ```bash
-# Update package index
 sudo apt-get update
+```
 
-# Install Docker
+**Install Docker**
+```bash
 curl -fsSL https://get.docker.com | sh
+```
 
-# Add user to docker group
+**Add user to docker group**
+```bash
 sudo usermod -aG docker $USER
+```
 
-# Restart session or run:
+**Restart session or run:**
+```bash
 newgrp docker
 ```
 
 #### 🐧 Linux (CentOS)
 
+**Set up the repository**
 ```bash
-# Set up the repository
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-# Install Docker
+```
+
+**Install Docker**
+```bash
 sudo yum install -y docker-ce docker-ce-cli containerd.io
-# Start Docker
+```
+
+**Start Docker**
+```bash
 sudo systemctl start docker
-# Add user to docker group
+```
+
+**Add user to docker group**
+```bash
 sudo usermod -aG docker $USER
-# Restart session or run:
+```
+
+**Restart session or run:**
+```bash
 newgrp docker
 ```  
   
