@@ -1,0 +1,29 @@
+k9s:
+  # Refresh rate in seconds
+  refreshRate: 2
+  # Max number of logs to keep
+  maxLogLines: 1000
+  # UI settings
+  ui:
+    # Use standard screen or full screen
+    headless: false
+    # Disable icons to save space or for cleaner look
+    noIcons: false
+    # Set the color theme (skin)
+    skin: catppuccin-mocha
+  # Logger settings
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 60
+    fullScreen: false
+    textWrap: false
+    showTime: false
+  # View settings
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70

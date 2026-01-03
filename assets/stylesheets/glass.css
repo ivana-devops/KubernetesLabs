@@ -1,0 +1,55 @@
+/* Glassmorphism Sidebar */
+.md-sidebar {
+    backdrop-filter: blur(10px);
+    background-color: #1e1e2e !important;
+    /* Solid lighter dark background */
+    border-right: 1px solid #444;
+}
+
+/* Tab Bar Glass effect */
+.md-header {
+    background: rgba(15, 15, 20, 0.85) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.md-tabs {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Active Navigation Item Glow */
+.md-nav__item--active>.md-nav__link {
+    color: #00e5ff !important;
+    text-shadow: 0 0 5px rgba(0, 229, 255, 0.3);
+    font-weight: bold;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Card Lift Effect */
+.md-content__inner {
+    transition: transform 0.3s ease;
+}
+
+.md-grid {
+    margin-right: auto;
+    margin-left: auto;
+}

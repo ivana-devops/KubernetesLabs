@@ -1,0 +1,52 @@
+plugin:
+  # Stern: Tail logs from multiple pods
+  # Requires 'stern' to be installed
+  stern:
+    shortCut: Shift-L
+    confirm: false
+    description: "Stern Logs"
+    scopes:
+      - pods
+    command: stern
+    background: false
+    args:
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+
+  # Debug: Launch a busybox sidecar for troubleshooting
+  debug:
+    shortCut: Shift-D
+    confirm: false
+    description: Add Debug Sidecar
+    scopes:
+      - pods
+    command: kubectl
+    background: false
+    args:
+      - debug
+      - -it
+      - $NAME
+      - --image=busybox
+      - --target=$NAME
+      - --namespace=$NAMESPACE
+
+  # Allocations: View resource allocations per pod/node
+  # Requires 'kubectl-view-allocations' plugin
+  alloc:
+    shortCut: Shift-A
+    confirm: false
+    description: View Allocations
+    scopes:
+      - nodes
+      - pods
+    command: kubectl
+    background: false
+    args:
+      - view-allocations
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
