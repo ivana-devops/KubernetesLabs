@@ -75,7 +75,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### DevBox Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install DevBox using Homebrew
@@ -116,7 +116,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 🐳 Docker Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install orbstack
@@ -173,7 +173,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 📥 Git Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install Git using Homebrew
@@ -214,7 +214,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### ⚓ Helm Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install Helm using Homebrew
@@ -258,7 +258,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### ☸️ kubectl Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install kubectl using Homebrew
@@ -308,7 +308,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 🟢 Node.js Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install Node.js using Homebrew
@@ -349,7 +349,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 💻 Visual Studio Code Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install VS Code using Homebrew
@@ -400,7 +400,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 🐶 k9s Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install k9s using Homebrew
@@ -446,7 +446,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### 🎯 Kind Installation
 
-=== " macOS"
+=== "🍎 macOS"
 
     ```bash
     # Install Kind using Homebrew
