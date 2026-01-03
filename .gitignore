@@ -102,3 +102,8 @@ desktop.ini
 *.tmp
 *.bak
 *.log
+
+# Devbox
+.devbox/
+#devbox.lock
+#.devcontainer/

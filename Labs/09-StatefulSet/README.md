@@ -7,7 +7,7 @@
 
 ## StatefulSets
 
-<img src="../../mkdocs/overrides/assets/images/statefulSet.png" width=500>
+<img src="../assets/images/statefulSet.png" width=500>
 
 
 ## The Difference Between a `Statefulset` And a `Deployment`

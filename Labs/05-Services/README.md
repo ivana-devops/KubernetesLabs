@@ -56,32 +56,7 @@ kubectl create namespace codewizard
 kubectl create deployment -n codewizard multitool --image=praqma/network-multitool
 ```
 
-**nginx pod**
-```bash
-kubectl create deployment -n codewizard nginx --image=nginx
-```
-
-**Verify that the pods running**
-```bash
-kubectl get all -n codewizard
-```
-!!! success "Expected Result"
-    ```text
-    deployment.apps/multitool created
-    deployment.apps/nginx created
-
-    NAME                             READY   STATUS    RESTARTS   AGE
-    pod/multitool-74477484b8-bdrwr   1/1     Running   0          29s
-    pod/nginx-6799fc88d8-p2fjn       1/1     Running   0          7s
-    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-    deployment.apps/multitool   1/1     1            1           30s
-    deployment.apps/nginx       1/1     1            1           8s
-    NAME                                   DESIRED   CURRENT   READY   AGE
-    replicaset.apps/multitool-74477484b8   1         1         1       30s
-    replicaset.apps/nginx-6799fc88d8       1         1         1       8s
-    ```
-<br>
-<br>
+---
 
 ## Service types
 
@@ -170,7 +145,7 @@ curl -s nginx
 ```bash
 curl -s nginx.codewizard.svc.cluster.local
 ```
-<br>
+
 ---
 
 # Service type: NodePort
