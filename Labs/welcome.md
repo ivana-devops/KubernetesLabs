@@ -1,4 +1,4 @@
-﻿![Kubernetes Logo](./assets/images/Kubernetes-Logo.wine.png)
+![Kubernetes Logo](./assets/images/Kubernetes-Logo.wine.png)
 ---
 
 ## Kubernetes Labs
@@ -7,7 +7,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ---
 
-## ≡ƒôÜ What You'll Learn
+## 📚 What You'll Learn
 
 * This lab series covers a wide range of `Kubernetes` topics:
 
@@ -41,7 +41,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ---
 
-## ≡ƒ¢á∩╕Å Prerequisites
+## 🛠️ Prerequisites
 
 * Before starting these labs, you should have:
 
@@ -72,7 +72,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ### DevBox Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install DevBox using Homebrew**
     ```bash
@@ -83,7 +83,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     ```bash
     devbox --version
     ```
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Download and install DevBox**
     ```bash
@@ -99,7 +99,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     ```bash
     devbox --version
     ``` 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download and install DevBox**
     ```bash
@@ -115,7 +115,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     ```bash
     devbox --version
     ```
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     **Install DevBox using Scoop**
     ```powershell
@@ -128,9 +128,9 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     ```
 ---
 
-### ≡ƒÉ│ Docker Installation
+### 🐳 Docker Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install orbstack**
     ```bash
@@ -142,7 +142,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     open -a orbstack
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Update package index**
     ```bash
@@ -164,7 +164,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     newgrp docker
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Set up the repository**
     ```bash
@@ -192,7 +192,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     newgrp docker
     ```  
   
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     **Install Docker Desktop**
     ```powershell
@@ -205,9 +205,9 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     ```
 ---
 
-### ≡ƒôÑ Git Installation
+### 📥 Git Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install Git using Homebrew**
     ```bash
@@ -219,7 +219,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     git --version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Update package index**
     ```bash
@@ -236,7 +236,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     git --version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Install Git**
     ```bash
@@ -248,15 +248,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     git --version
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Git from the official website: [https://git-scm.com/download/win](https://git-scm.com/download/win)
 
 ---
 
-### ΓÜô Helm Installation
+### ⚓ Helm Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install Helm using Homebrew**
     ```bash
@@ -268,7 +268,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     helm version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Download and install Helm**
     ```bash
@@ -283,7 +283,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     helm version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download and install Helm**
     ```bash
@@ -298,15 +298,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     helm version
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Helm from: [https://get.helm.sh/helm-v3.12.0-windows-amd64.zip](https://get.helm.sh/helm-v3.12.0-windows-amd64.zip)
 
 ---
 
-### Γÿ╕∩╕Å kubectl Installation
+### ☸️ kubectl Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install kubectl using Homebrew**
     ```bash
@@ -318,7 +318,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kubectl version --client
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Download kubectl**
     ```bash
@@ -340,7 +340,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kubectl version --client
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download kubectl**
     ```bash
@@ -362,15 +362,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kubectl version --client
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download kubectl from: [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
 
 ---
 
-### ≡ƒƒó Node.js Installation
+### 🟢 Node.js Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install Node.js using Homebrew**
     ```bash
@@ -383,7 +383,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     npm --version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Install Node.js using NodeSource repository**
     ```bash
@@ -397,7 +397,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     npm --version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     ```bash
     dnf module reset nodejs -y
@@ -407,15 +407,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     npm -v
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Node.js from: [https://nodejs.org/](https://nodejs.org/)
 
 ---
 
-### ≡ƒÆ╗ Visual Studio Code Installation
+### 💻 Visual Studio Code Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install VS Code using Homebrew**
     ```bash
@@ -427,7 +427,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     code .
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Install VS Code using snap**
     ```bash
@@ -448,7 +448,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     code .
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Import Microsoft GPG key**
     ```bash
@@ -470,15 +470,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     code .
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Visual Studio Code from: [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
 ---
 
-### ≡ƒÉ╢ k9s Installation
+### 🐶 k9s Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install k9s using Homebrew**
     ```bash
@@ -490,7 +490,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     k9s version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Install k9s using webinstall**
     ```bash
@@ -509,7 +509,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     k9s version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download k9s binary**
     ```bash
@@ -524,15 +524,15 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     k9s version
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download k9s from: [https://github.com/derailed/k9s/releases](https://github.com/derailed/k9s/releases)
 
 ---
 
-### ≡ƒÄ» Kind Installation
+### 🎯 Kind Installation
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install Kind using Homebrew**
     ```bash
@@ -544,7 +544,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kind version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Download Kind binary**
     ```bash
@@ -558,7 +558,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kind version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download Kind binary**
     ```bash
@@ -572,7 +572,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
     kind version
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
@@ -585,4 +585,4 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 Let's dive into the world of Kubernetes together!
 
-≡ƒæë [**Start the Labs here! (Lab 00 - Verify Cluster)**](00-VerifyCluster/README.md)
+👉 [**Start the Labs here! (Lab 00 - Verify Cluster)**](00-VerifyCluster/README.md)

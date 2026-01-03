@@ -1,4 +1,4 @@
-﻿# K8S Hands-on
+# K8S Hands-on
 
 
 
@@ -19,7 +19,7 @@
 
 - Run the following commands based on your operating system:
 
-=== "≡ƒìÄ macOS"
+=== "🍎 macOS"
 
     **Install Kind using Homebrew**
     ```bash
@@ -31,7 +31,7 @@
     kind version
     ```
 
-=== "≡ƒÉº Linux (Ubuntu/Debian)"
+=== "🐧 Linux (Ubuntu/Debian)"
 
     **Download Kind binary**
     ```bash
@@ -45,7 +45,7 @@
     kind version
     ```
 
-=== "≡ƒÉº Linux (CentOS)"
+=== "🐧 Linux (CentOS)"
 
     **Download Kind binary**
     ```bash
@@ -59,7 +59,7 @@
     kind version
     ```
 
-=== "Γè₧ Windows"
+=== "⊞ Windows"
 
     Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
@@ -73,18 +73,18 @@ kind create cluster
 
 ```sh
 Creating cluster "kind" ...
- ΓÇó Ensuring node image (kindest/node:v1.27.3) ≡ƒû╝
- ΓÇó Preparing nodes ≡ƒôª
- ΓÇó Writing configuration ≡ƒô£
- ΓÇó Starting control-plane ≡ƒò╣∩╕Å
- ΓÇó Installing CNI ≡ƒöî
- ΓÇó Installing StorageClass ≡ƒÆ╛
+ • Ensuring node image (kindest/node:v1.27.3) 🖼
+ • Preparing nodes 📦
+ • Writing configuration 📜
+ • Starting control-plane 🕹️
+ • Installing CNI 🔌
+ • Installing StorageClass 💾
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
 kubectl cluster-info --context kind-kind
 
-Thanks for using kind! ≡ƒÿè
+Thanks for using kind! 😊
 ```
 
 ### 03. Check the Kind cluster status
