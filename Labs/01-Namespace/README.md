@@ -77,7 +77,7 @@ kubectl config get-contexts
 - When using `kubectl` you can pass the `-n` flag in order to execute the `kubectl` command on a desired `namespace`.
 - For example:
 
-```sh
+```bash
 # get resources of a specific workspace
-$ kubectl get pods -n <namespace>
+kubectl get pods -n <namespace>
 ```

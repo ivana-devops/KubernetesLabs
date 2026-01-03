@@ -64,7 +64,7 @@ spec:
 
 - Create the deployment using the `-f` flag & `--record=true`
 
-  ```bash
+```bash
 kubectl apply -n codewizard -f nginx.yaml --record=true
 ```
 !!! success "Expected Result"

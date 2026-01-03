@@ -21,37 +21,41 @@
 
 #### 🍎 macOS
 
+**Install Kind using Homebrew**
 ```bash
-# Install Kind using Homebrew
 brew install kind
 ```
 
+**Verify installation**
 ```bash
-# Verify installation
 kind version
 ```
 
 #### 🐧 Linux (Ubuntu/Debian)
 
+**Download Kind binary**
 ```bash
-# Download Kind binary
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
+```
 
-# Verify installation
+**Verify installation**
+```bash
 kind version
 ```
 
 #### 🐧 Linux (CentOS)
 
+**Download Kind binary**
 ```bash
-# Download Kind binary
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
+```
 
-# Verify installation
+**Verify installation**
+```bash
 kind version
 ```
 
@@ -130,8 +134,8 @@ kubectl config view
 
 ### Step 05 - Verify that you can "talk" to your cluster
 
+**Check the nodes in the Kind cluster**
 ```sh
-# Check the nodes in the Kind cluster
 kubectl get nodes
 ```
 !!! success "Expected Result"

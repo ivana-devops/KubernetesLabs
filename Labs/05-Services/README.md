@@ -33,11 +33,13 @@
 
 ### Step 01 - Create namespace and clear previous data if there is any
 
+**If the namespace already exists, let's clean it**
 ```bash
-# If the namespace already exists, let's clean it
 kubectl delete namespace codewizard
+```
 
-# Create the desired namespace [codewizard]
+**Create the desired namespace [codewizard]**
+```bash
 kubectl create namespace codewizard
 ```
 !!! success "Expected Result"
@@ -49,14 +51,18 @@ kubectl create namespace codewizard
 
 ### Step 02 - Create the required resources for this hand-on
 
+**Network tools pod**
 ```bash
-# Network tools pod
 kubectl create deployment -n codewizard multitool --image=praqma/network-multitool
+```
 
-# nginx pod
+**nginx pod**
+```bash
 kubectl create deployment -n codewizard nginx --image=nginx
+```
 
-# Verify that the pods running
+**Verify that the pods running**
+```bash
 kubectl get all -n codewizard
 ```
 !!! success "Expected Result"
@@ -92,11 +98,13 @@ kubectl get all -n codewizard
 
 ### Step 03 - Expose the nginx with ClusterIP
 
+**Expose the service on port 80**
 ```bash
-# Expose the service on port 80
 kubectl expose deployment nginx -n codewizard --port 80 --type ClusterIP
+```
 
-# Check the services
+**Check the services**
+```bash
 kubectl get services -n codewizard
 ```
 !!! success "Expected Result"
@@ -111,11 +119,13 @@ kubectl get services -n codewizard
 
 - Since the service is a `ClusterIP`, we will test if we can access the service using the multitool pod.
 
+**Get the name of the multitool pod**
 ```bash
-# Get the name of the multitool pod
 kubectl get pods -n codewizard
+```
 
-# Run an interactive shell
+**Run an interactive shell**
+```bash
 kubectl exec -it <pod name> -n codewizard -- sh
 ```
 
@@ -185,11 +195,13 @@ kubectl delete svc nginx -n codewizard
 
 ##### 2. Create `NodePort` service
 
+**Create NodePort service**
 ```bash
-# Create NodePort service
 kubectl expose deployment -n codewizard nginx --port 80 --type NodePort
+```
 
-# Verify service
+**Verify service**
+```bash
 kubectl get svc -n codewizard
 ```
 !!! success "Expected Result"
@@ -247,11 +259,13 @@ kubectl delete svc nginx -n codewizard
 
 ##### 2. Create `LoadBalancer` Service
 
+**Create LoadBalancer Service**
 ```bash
-# Create LoadBalancer Service
 kubectl expose deployment nginx -n codewizard --port 80 --type LoadBalancer
+```
 
-# Verify service
+**Verify service**
+```bash
 kubectl get svc -n codewizard
 ```
 !!! success "Expected Result"

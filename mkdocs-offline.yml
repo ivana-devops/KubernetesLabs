@@ -40,23 +40,33 @@ theme:
     - navigation.prune
     - navigation.sections
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.top: true
     - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
-    - toc.integrate
     - toc.sticky
     
     #- header.autohide  # Disabled to keep top nav always visible
     
   # 👈 enables avatar display
   palette:
-    # Dark mode only
+    # 1. Dark mode (default)
     - scheme: slate
-      primary: indigo # You can choose any color here
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to Light Mode
+
+    # 2. Light mode
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Dark Mode
 
   font:
     text: Mulish

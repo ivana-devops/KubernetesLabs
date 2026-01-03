@@ -474,14 +474,15 @@ resources:
 !!! warning "**Note**"
     There is a bug with the `replicas` entries which return error for some reason.
 
-```sh
-$ kubectl kustomize .
-
+```bash
+ kubectl kustomize .
+```
 # For some reason we get this error:
 Error: json: unknown field "replicas"
 
 # Workaround for this error for now is:
-$ kustomize build .
+```bash
+ kubectl kustomize .
 ```
 
 ```yaml

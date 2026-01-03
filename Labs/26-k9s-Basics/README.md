@@ -62,4 +62,4 @@ k9s relies on powerful keyboard shortcuts. Once it's running, try these common c
 - `shift-f` - **Port Forward View**: Manage and view active port forwards (use `:pf` as an alias).
 
 ---
-*Next: Learn advanced k9s features and power-user customizations in [Lab 30](../30-k9s/README.md).*
+*Next: Learn advanced k9s features and power-user customizations in [Lab 30](../30-k9s-Advanced/README.md).*
