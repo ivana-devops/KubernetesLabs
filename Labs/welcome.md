@@ -1,5 +1,4 @@
-![Kubernetes Logo](../assets/images/Kubernetes-Logo.wine.png)
-
+![Kubernetes Logo](./assets/images/Kubernetes-Logo.wine.png)
 ---
 
 # 
