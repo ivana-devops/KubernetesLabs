@@ -29,18 +29,24 @@
 
 ### Install `operator-sdk`
 
+**Grab the ARCH and OS**
 ```sh
-# Grab the ARCH and OS
 export ARCH=$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac)
 export OS=$(uname | awk '{print tolower($0)}')
+```
 
-# Get the desired download URL
+**Get the desired download URL**
+```sh
 export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.23.0
+```
 
-# Download the Operator binaries
+**Download the Operator binaries**
+```sh
 curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
+```
 
-# Install the release binary in your PATH
+**Install the release binary in your PATH**
+```sh
 chmod +x operator-sdk_${OS}_${ARCH} && sudo mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
 ```
 
@@ -212,16 +218,19 @@ spec:
 
 ### Step 03 - Build the operator's image
 
+**Login to your DockerHub / acr / ecr or any other registry account**
 ```sh
-# Login to your DockerHub / acr / ecr or any other registry account
-
 # Set the desired image name and tag
+```
 
-# In the Makefile update the following line
+**In the Makefile update the following line**
+```sh
 # Image URL to use all building/pushing image targets
 IMG ?= controller:latest
+```
 
-# change it to your registry account
+**change it to your registry account**
+```sh
 IMG ?= nirgeier/helm_operator:latest
 ```
 
@@ -235,8 +244,10 @@ make docker-build docker-push
 
 ```sh
 make deploy
+```
 
-# Verify that the operator is deployed
+**Verify that the operator is deployed**
+```sh
 kubectl get deployment -n nginx-operator-system
 ```
 
