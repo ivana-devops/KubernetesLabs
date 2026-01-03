@@ -1,8 +1,6 @@
 ![Kubernetes Logo](./assets/images/Kubernetes-Logo.wine.png)
 ---
 
-# 
-
 ## Kubernetes Labs
 
 This is a comprehensive collection of hands-on labs designed to help you learn and master Kubernetes concepts, from basic deployments to advanced topics like Istio, ArgoCD and custom schedulers.
@@ -76,39 +74,56 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install DevBox using Homebrew**
     ```bash
-    # Install DevBox using Homebrew
     brew install getdevbox/tap/devbox
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     devbox --version
     ```
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Download and install DevBox**
     ```bash
-    # Download and install DevBox
-    curl -fsSL https://get.devbox.sh | bash 
-    # Restart terminal or run:
-    source ~/.bashrc  
-    # Verify installation
+    curl -fsSL https://get.devbox.sh | bash
+    ```
+
+    **Restart terminal or run:**
+    ```bash
+    source ~/.bashrc
+    ```
+
+    **Verify installation**
+    ```bash
     devbox --version
     ``` 
 === "🐧 Linux (CentOS)"
 
+    **Download and install DevBox**
     ```bash
-    # Download and install DevBox
-    curl -fsSL https://get.devbox.sh | bash         
-    # Restart terminal or run:
+    curl -fsSL https://get.devbox.sh | bash
+    ```
+
+    **Restart terminal or run:**
+    ```bash
     source ~/.bashrc
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     devbox --version
     ```
 === "⊞ Windows"
 
+    **Install DevBox using Scoop**
     ```powershell
-    # Install DevBox using Scoop
     scoop install devbox
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```powershell
     devbox --version
     ```
 ---
@@ -117,55 +132,75 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install orbstack**
     ```bash
-    # Install orbstack
     brew install --cask orbstack
-    
-    # Start orbstack
-    open -a orbstack
+    ```
 
-    
+    **Start orbstack**
+    ```bash
+    open -a orbstack
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Update package index**
     ```bash
-    # Update package index
     sudo apt-get update
-    
-    # Install Docker
+    ```
+
+    **Install Docker**
+    ```bash
     curl -fsSL https://get.docker.com | sh
-    
-    # Add user to docker group
+    ```
+
+    **Add user to docker group**
+    ```bash
     sudo usermod -aG docker $USER
-    
-    # Restart session or run:
+    ```
+
+    **Restart session or run:**
+    ```bash
     newgrp docker
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Set up the repository**
     ```bash
-    # Set up the repository
     sudo yum install -y yum-utils
     sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-    # Install Docker
-    sudo yum install -y docker-ce docker-ce-cli containerd.io
-    # Start Docker
-    sudo systemctl start docker
-    # Add user to docker group
-    sudo usermod -aG docker $USER
-    # Restart session or run:
-    newgrp docker
+    ```
 
+    **Install Docker**
+    ```bash
+    sudo yum install -y docker-ce docker-ce-cli containerd.io
+    ```
+
+    **Start Docker**
+    ```bash
+    sudo systemctl start docker
+    ```
+
+    **Add user to docker group**
+    ```bash
+    sudo usermod -aG docker $USER
+    ```
+
+    **Restart session or run:**
+    ```bash
+    newgrp docker
     ```  
   
 === "⊞ Windows"
 
+    **Install Docker Desktop**
     ```powershell
-    # Install Docker Desktop
     winget install --id Docker.DockerDesktop -e
-    # Start Docker Desktop
+    ```
+
+    **Start Docker Desktop**
+    ```powershell
     Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
     ```
 ---
@@ -174,34 +209,42 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install Git using Homebrew**
     ```bash
-    # Install Git using Homebrew
     brew install git
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     git --version
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Update package index**
     ```bash
-    # Update package index
     sudo apt update
-    
-    # Install Git
+    ```
+
+    **Install Git**
+    ```bash
     sudo apt install -y git
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     git --version
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Install Git**
     ```bash
-    # Install Git
     sudo yum install -y git
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     git --version
     ```
 
@@ -215,37 +258,43 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install Helm using Homebrew**
     ```bash
-    # Install Helm using Homebrew
     brew install helm
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     helm version
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Download and install Helm**
     ```bash
-    # Download and install Helm
     curl https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz -o helm.tar.gz
     tar -zxvf helm.tar.gz
     sudo mv linux-amd64/helm /usr/local/bin/helm
     rm -rf linux-amd64 helm.tar.gz
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     helm version
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Download and install Helm**
     ```bash
-    # Download and install Helm
     curl https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz -o helm.tar.gz
     tar -zxvf helm.tar.gz
     sudo mv linux-amd64/helm /usr/local/bin/helm
     rm -rf linux-amd64 helm.tar.gz
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     helm version
     ```
 
@@ -259,43 +308,57 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install kubectl using Homebrew**
     ```bash
-    # Install kubectl using Homebrew
     brew install kubectl
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kubectl version --client
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Download kubectl**
     ```bash
-    # Download kubectl
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    
-    # Make it executable
+    ```
+
+    **Make it executable**
+    ```bash
     chmod +x kubectl
-    
-    # Move to PATH
+    ```
+
+    **Move to PATH**
+    ```bash
     sudo mv kubectl /usr/local/bin/
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kubectl version --client
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Download kubectl**
     ```bash
-    # Download kubectl
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    
-    # Make it executable
+    ```
+
+    **Make it executable**
+    ```bash
     chmod +x kubectl
-    
-    # Move to PATH
+    ```
+
+    **Move to PATH**
+    ```bash
     sudo mv kubectl /usr/local/bin/
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kubectl version --client
     ```
 
@@ -309,23 +372,27 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install Node.js using Homebrew**
     ```bash
-    # Install Node.js using Homebrew
     brew install node
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     node --version
     npm --version
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Install Node.js using NodeSource repository**
     ```bash
-    # Install Node.js using NodeSource repository
     curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
     sudo apt-get install -y nodejs
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     node --version
     npm --version
     ```
@@ -350,44 +417,56 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install VS Code using Homebrew**
     ```bash
-    # Install VS Code using Homebrew
     brew install --cask visual-studio-code
-    
-    # Start VS Code
+    ```
+
+    **Start VS Code**
+    ```bash
     code .
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Install VS Code using snap**
     ```bash
-    # Install VS Code using snap
     sudo snap install code --classic
-    
-    # Or using apt repository
+    ```
+
+    **Or using apt repository**
+    ```bash
     # wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
     # sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
     # sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
     # sudo apt update
     # sudo apt install code
-    
-    # Start VS Code
+    ```
+
+    **Start VS Code**
+    ```bash
     code .
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Import Microsoft GPG key**
     ```bash
-    # Import Microsoft GPG key
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    
-    # Add VS Code repository
+    ```
+
+    **Add VS Code repository**
+    ```bash
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-    
-    # Install VS Code
+    ```
+
+    **Install VS Code**
+    ```bash
     sudo yum install -y code
-    
-    # Start VS Code
+    ```
+
+    **Start VS Code**
+    ```bash
     code .
     ```
 
@@ -401,39 +480,47 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install k9s using Homebrew**
     ```bash
-    # Install k9s using Homebrew
     brew install k9s
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     k9s version
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Install k9s using webinstall**
     ```bash
-    # Install k9s using webinstall
     curl -sS https://webinstall.dev/k9s | bash
-    
-    # Or download binary
+    ```
+
+    **Or download binary**
+    ```bash
     # curl -L https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz -o k9s.tar.gz
     # tar -xzf k9s.tar.gz
     # sudo mv k9s /usr/local/bin/
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     k9s version
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Download k9s binary**
     ```bash
-    # Download k9s binary
     curl -L https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_amd64.tar.gz -o k9s.tar.gz
     tar -xzf k9s.tar.gz
     sudo mv k9s /usr/local/bin/
     rm k9s.tar.gz
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     k9s version
     ```
 
@@ -447,35 +534,41 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 === "🍎 macOS"
 
+    **Install Kind using Homebrew**
     ```bash
-    # Install Kind using Homebrew
     brew install kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Download Kind binary**
     ```bash
-    # Download Kind binary
     curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Download Kind binary**
     ```bash
-    # Download Kind binary
     curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
