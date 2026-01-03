@@ -1,10 +1,10 @@
-
 # K8S Hands-on
 
 
 ---
 
-# Kustomization - `kubectl kustomize`
+## Kustomization
+ - `kubectl kustomize`
 
 ## Declarative Configuration in Kubernetes
 

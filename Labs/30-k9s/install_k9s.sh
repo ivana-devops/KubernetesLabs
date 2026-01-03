@@ -28,6 +28,14 @@ get_latest_version() {
 
 # Main installation function
 install_k9s() {
+    # Prerequisite checks
+    for cmd in curl tar sed grep; do
+        if ! command -v $cmd &> /dev/null; then
+            echo "Error: $cmd is not installed but is required. Please install it first."
+            exit 1
+        fi
+    done
+
     echo "Detecting system information..."
     OS_ARCH=$(detect_os)
     

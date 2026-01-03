@@ -4,7 +4,7 @@
 
 ---
 
-# Service Discovery
+## Service Discovery
 
 - In the following lab we will learn what is a `Service` and go over the different `Service` types.
 
@@ -71,7 +71,7 @@ replicaset.apps/nginx-6799fc88d8       1         1         1       8s
 <br>
 <br>
 
-# Service types
+## Service types
 
 - As previously mentioned, there are several services type. Let's practice them:
 

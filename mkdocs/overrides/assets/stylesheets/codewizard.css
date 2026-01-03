@@ -1,6 +1,7 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+
 :root {
   --color-yellow: #f8b22f;
   --color-yellow-light: #f9d91d;
@@ -64,6 +65,7 @@ body {
     background-size: cover;
     background-position: center;
   }
+
   .logo2 {
     width: 200px;
     height: 50px;
@@ -77,6 +79,7 @@ body {
     border-radius: 15px;
   }
 }
+
 /* Remove focus-within styles globally */
 *:focus-within {
   outline: none !important;
@@ -91,9 +94,12 @@ body {
 /* Change border color, width, and style for all notes */
 .md-typeset .admonition.note,
 .md-typeset details.note {
-  border: 1px solid #0074d9; /* Change color and style as needed */
-  border-radius: 8px; /* Optional: rounded corners */
-  box-shadow: none; /* Optional: remove shadow */
+  border: 1px solid #0074d9;
+  /* Change color and style as needed */
+  border-radius: 8px;
+  /* Optional: rounded corners */
+  box-shadow: none;
+  /* Optional: remove shadow */
 }
 
 .md-theme-light .md-typeset img,
@@ -129,17 +135,20 @@ body {
     display: block !important;
     width: 15rem;
   }
+
   /* Make sure content area doesn't overlap */
   /* .md-main__inner {
     display: grid;
     grid-template-columns: minmax(250px, 300px) 1fr;
   } */
 }
+
 @media screen and (max-width: 76.25em) {
   /* .md-sidebar {
     display: none !important;
   } */
 }
+
 .md-typeset a {
   color: var(--color-link);
 }
@@ -158,7 +167,8 @@ img.width-24px {
   vertical-align: middle;
 }
 
-.center, .lab-logo {
+.center,
+.lab-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -259,8 +269,10 @@ img.width-24px {
 
 .md-typeset .admonition.note,
 .md-typeset details.note {
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Change color and style as needed */
-  border-radius: 10px; /* Optional: rounded corners */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* Change color and style as needed */
+  border-radius: 10px;
+  /* Optional: rounded corners */
   box-shadow: 0 0 1px whitesmoke;
 }
 
@@ -322,6 +334,7 @@ body[data-path*="02"] .md-content {
 }
 
 @media print {
+
   /*
    * --------------------------------------------------
    * Core Print Styles
@@ -332,13 +345,16 @@ body[data-path*="02"] .md-content {
   @page {
     size: A4 portrait;
     margin: 2.5cm;
+
     @top-center {
       /* Define a custom string for the document title */
-      content: "GitHub Workshop Aug 2025 [Atera by Nir Geier]"; /* Simple string for the header */
+      content: "GitHub Workshop Aug 2025 [Atera by Nir Geier]";
+      /* Simple string for the header */
       font-size: 12px;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #777;
     }
+
     @bottom-center {
       /* Display "Page X of Y" in the footer */
       content: "@CodeWizard / CommitAI - Page " counter(page) " of " counter(pages);
@@ -347,10 +363,12 @@ body[data-path*="02"] .md-content {
       color: #777;
     }
   }
+
   /* Remove all empty pages */
   @page :blank {
     display: none;
   }
+
   /*
    * --------------------------------------------------
    * Enhancing Legibility
@@ -362,23 +380,28 @@ body[data-path*="02"] .md-content {
     line-height: 1em;
     color: #000 !important;
   }
+
   /* Remove the display of URLs in parentheses after links */
   a:after {
     content: none;
   }
+
   /* Disable the color on links to keep them black for printing */
   a {
     color: #000 !important;
   }
+
   /* Ensure the main content takes up the full width of the page */
   .md-main__inner {
     max-width: none;
   }
+
   /* Make sure all content is visible and takes up the full width of the page. */
   .md-main {
     margin: 0;
     padding: 0;
   }
+
   /*
    * --------------------------------------------------
    * Managing Page Breaks
@@ -390,8 +413,9 @@ body[data-path*="02"] .md-content {
   table,
   img {
     -moz-column-break-inside: avoid;
-         break-inside: avoid;
+    break-inside: avoid;
   }
+
   /* Remove page breaks before and after headers and sections */
   h1,
   h2,
@@ -401,13 +425,15 @@ body[data-path*="02"] .md-content {
   h6,
   section {
     -moz-column-break-before: auto;
-         break-before: auto;
+    break-before: auto;
     -moz-column-break-after: auto;
-         break-after: auto;
+    break-after: auto;
   }
+
   emsp {
     padding: 0 5px 0 0;
   }
+
   /*
    * --------------------------------------------------
    * Hiding Non-Essential Elements
@@ -425,9 +451,11 @@ body[data-path*="02"] .md-content {
   nav {
     display: none !important;
   }
+
   .md-source-file nav {
     display: block !important;
   }
+
   /* Ensure main content takes full width in PDF */
   .md-content {
     margin: 0 !important;
@@ -437,20 +465,23 @@ body[data-path*="02"] .md-content {
     box-shadow: none !important;
     font-size: 12px !important;
   }
+
   /* Optional: make links look like plain text */
   a {
     color: black;
     text-decoration: none;
   }
+
   .md-main__inner {
     display: block;
   }
 }
+
 .md-nav__item {
   color: var(--color-menu-item);
 }
 
-.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+.md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link {
   background: transparent;
   box-shadow: none;
 }
@@ -476,7 +507,7 @@ body[data-path*="02"] .md-content {
 }
 
 /* Hide sidebar items that are not in the active tab */
-.md-nav__list > .md-nav__item--nested:not(.md-nav__item--active) {
+.md-nav__list>.md-nav__item--nested:not(.md-nav__item--active) {
   display: none;
 }
 
@@ -575,7 +606,7 @@ body[data-path*="02"] .md-content {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -649,12 +680,100 @@ body[data-path*="02"] .md-content {
   .md-source-file__fact {
     font-size: 0.6rem;
   }
+
   .md-author {
     height: 1.4rem;
     width: 1.4rem;
   }
+
   .md-source-file--large .md-author {
     height: 1.8rem;
     width: 1.8rem;
+  }
+}
+
+/*
+ * --------------------------------------------------
+ * Lab Navigator Styles
+ * --------------------------------------------------
+ */
+.lab-navigator {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: 1px solid var(--color-borders);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.lab-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 15px;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 0;
+}
+
+.lab-nav-item:hover {
+  background-color: var(--color-gray-light);
+  color: var(--color-yellow) !important;
+}
+
+.lab-nav-item.center-item {
+  flex: 0 0 auto;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid var(--color-borders);
+  border-right: 1px solid var(--color-borders);
+  background-color: #222;
+  padding: 0 20px;
+}
+
+.lab-nav-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.lab-nav-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.lab-nav-prev {
+  align-items: flex-start;
+}
+
+.lab-nav-next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  .lab-navigator {
+    flex-direction: column;
+  }
+
+  .lab-nav-item.center-item {
+    border: none;
+    border-top: 1px solid var(--color-borders);
+    border-bottom: 1px solid var(--color-borders);
+    padding: 10px;
   }
 }

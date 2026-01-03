@@ -5,7 +5,7 @@
 
 ---
 
-# Kubebuilder
+## Kubebuilder
 
 ### Prerequisites
 - Go (Golang) installed.

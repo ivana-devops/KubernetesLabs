@@ -4,7 +4,7 @@
 
 ---
 
-# Pod Disruption Budgets (PDB)
+## Pod Disruption Budgets (PDB)
 - In this lab, we will learn about `Pod Disruption Budgets (PDB)` in Kubernetes.
 - We will explore how to define and implement PDBs to ensure application availability during voluntary disruptions, such as node maintenance or cluster upgrades.
 - By the end of this lab, you will understand how to create and manage Pod Disruption Budgets to maintain the desired level of service availability in your Kubernetes cluster.

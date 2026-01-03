@@ -1,10 +1,9 @@
-
 # K8S Hands-on
 
 
 ---
 
-# Nginx-Ingress
+## Nginx Ingress Controller
 
  
 !!! Important - 

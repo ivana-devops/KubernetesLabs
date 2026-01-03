@@ -1,12 +1,10 @@
-
-
-# K8S Hands-on 
+# K8S Hands-on
 
 
 
 ---
 
-# Istio
+## Istio
 
 Istio is an open-source service mesh that provides a way to manage microservices traffic, security, and observability in a Kubernetes cluster.
 

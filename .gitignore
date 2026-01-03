@@ -83,3 +83,22 @@ dmypy.json
 
 # Virtual environments
 .venv/
+.venv*/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.log

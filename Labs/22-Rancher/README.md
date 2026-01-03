@@ -5,7 +5,7 @@
 
 ---
 
-# Rancher
+## Rancher
 
 ### Prerequisites
 - A Kubernetes cluster with at least 4GB of RAM (Rancher is resource-intensive).

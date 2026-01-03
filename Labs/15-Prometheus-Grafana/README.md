@@ -6,7 +6,7 @@
 
 
 ---
-# Prometheus and Grafana Monitoring Lab
+## Prometheus and Grafana Monitoring Lab
 
 - In this lab, we will learn how to set up and configure `Prometheus` and `Grafana` for monitoring a Kubernetes cluster.
 - You will install `Prometheus` to collect metrics from the cluster and `Grafana` to visualize those metrics.

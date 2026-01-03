@@ -5,7 +5,7 @@
 
 ---
 
-# Metric Server
+## Metric Server
 
 ### Prerequisites
 - A running Kubernetes cluster.

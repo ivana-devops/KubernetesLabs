@@ -5,7 +5,7 @@
 
 ---
 
-# ArgoCD
+## ArgoCD
 
 - In this tutorial, we will learn the essentials of `ArgoCD`, a declarative GitOps continuous delivery tool for Kubernetes.
 - We will install `ArgoCD`, deploy applications, sync resources from Git repositories, and gain practical experience with GitOps workflows.
@@ -103,7 +103,7 @@
 
 ---
 
-# Lab
+## Lab
 
 ## Part 01 - Installing ArgoCD
 

@@ -1,0 +1,31 @@
+alias:
+  # Base Resources
+  p: v1/pods
+  s: v1/services
+  d: apps/v1/deployments
+  ns: v1/namespaces
+  n: v1/nodes
+  
+  # Configuration
+  cm: v1/configmaps
+  sec: v1/secrets
+  
+  # Networking
+  ing: networking.k8s.io/v1/ingresses
+  ep: v1/endpoints
+  
+  # Storage
+  pv: v1/persistentvolumes
+  pvc: v1/persistentvolumeclaims
+  sc: storage.k8s.io/v1/storageclasses
+  
+  # RBAC
+  cr: rbac.authorization.k8s.io/v1/clusterroles
+  crb: rbac.authorization.k8s.io/v1/clusterrolebindings
+  ro: rbac.authorization.k8s.io/v1/roles
+  rb: rbac.authorization.k8s.io/v1/rolebindings
+  
+  # Custom/Advanced
+  can: can-i
+  ctx: context
+  pf: portforwards

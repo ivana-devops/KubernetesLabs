@@ -5,7 +5,7 @@
 
 ---
 
-# Auditing
+## Auditing
 
 ### Prerequisites
 - A running Kubernetes cluster (Minikube, Kind, or Cloud Shell).

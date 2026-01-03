@@ -4,7 +4,7 @@
 
 ---
 
-# Writing custom Scheduler
+## Writing custom Scheduler
 
 - `Scheduling` is the process of selecting a node for a pod to run on.
 - In this lab we will write our own pods `scheduler`.

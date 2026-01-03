@@ -2,8 +2,9 @@
 # K8S Hands-on
 
 
+
 ---
-# Deployment - Imperative
+## Deployment - Imperative
 
 
 ## Creating deployments using `kubectl create`

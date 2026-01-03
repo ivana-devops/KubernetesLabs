@@ -5,7 +5,7 @@
 
 ---
 
-# StatefulSets
+## StatefulSets
 
 <img src="../../mkdocs/overrides/assets/images/statefulSet.png" width=500>
 

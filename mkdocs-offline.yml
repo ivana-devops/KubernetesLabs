@@ -2,8 +2,8 @@
 ### mkdocs-theme.yml
 ###
 copyright:
-  '©2021-2025 Nir Geier<br/><a href="https://visitor-badge.laobi.icu/badge?page_id=nirgeier" target="_blank" rel="noopener"><img
-  src="https://visitor-badge.laobi.icu/badge?page_id=nirgeier" alt="Visitor Badge"></a>'
+  '©2021-2025 Nir Geier<br/><a href="https://github.com/nirgeier/KubernetesLabs" target="_blank" rel="noopener"><img
+  src="assets/images/visitor-badge.svg" alt="Visitor Badge"></a>'
 theme:
   name: material
   custom_dir: mkdocs/overrides
@@ -37,6 +37,7 @@ theme:
     - toc.follow
     - toc.integrate
     - toc.sticky
+    - navigation.indexes # Essential for offline search
     
     #- header.autohide  # Disabled to keep top nav always visible
     
@@ -49,7 +50,7 @@ theme:
   font:
     text: Mulish
     code: JetBrains Mono
-  favicon: assets/favicon.png
+  favicon: assets/images/favicon.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
@@ -84,8 +85,17 @@ nav:
       - 18 ArgoCD: 18-ArgoCD/README.md
       - 19 CustomScheduler: 19-CustomScheduler/README.md
       - 20 CronJob: 20-CronJob/README.md
+      - 21 Auditing: 21-Auditing/README.md
       - 21 KubeAPI: 21-KubeAPI/README.md
-      - 22 HelmOperator: 24-HelmOperator/README.md
+      - 22 Rancher: 22-Rancher/README.md
+      - 23 MetricServer: 23-MetricServer/README.md
+      - 24 HelmOperator: 24-HelmOperator/README.md
+      - 25 Kubebuilder: 25-kubebuilder/README.md
+      - 26 k9s Basics: 26-k9s/README.md
+      - 27 Krew: 27-krew/README.md
+      - 28 Kubeapps: 28-kubeapps/README.md
+      - 29 Kubeadm: 29-kubeadm/README.md
+      - 30 k9s Advanced: 30-k9s/README.md
 ###
 ### mkdocs-site.yml
 ###
@@ -149,15 +159,14 @@ extra:
 
 extra_css:
   - ./assets/stylesheets/codewizard.css?v=1765676292
-extra_javascript:
-  - https://buttons.github.io/buttons.js?v=1765676292
+extra_javascript: [] # External scripts disabled for offline support
 ###
 ### mkdocs-extensions.yml
 ###
 
 markdown_extensions:
   - toc:
-      permalink: true
+      permalink: false
       baselevel: 1
       toc_depth: 3
   - abbr
@@ -211,8 +220,8 @@ plugins:
     - git-committers:
           branch: main
           docs_path: Labs # set if your docs folder is not root
-          enabled: true
-          repository: nirgeier/KubernetesLabs
+          enabled: false
+          repository: ivana-devops/KubernetesLabs
     - git-revision-date-localized:
           enable_creation_date: true
           enable_git_follow: false
@@ -222,9 +231,10 @@ plugins:
           type: date
     - search:
           separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+    - offline # Enables bundled fonts and offline search
     - minify:
           minify_html: true
 
     # Leave this one as the last one in the list
-    - print-site
     - include-markdown
+    - print-site

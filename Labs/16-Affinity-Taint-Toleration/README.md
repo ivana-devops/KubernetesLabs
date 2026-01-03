@@ -6,7 +6,7 @@
 
 ---
 
-# Node Affinity, Taints, and Tolerations Lab
+## Node Affinity, Taints, and Tolerations Lab
 
 - In this lab, we will explore Kubernetes mechanisms for controlling Pod placement on Nodes.
 - We will learn how to use `Node Affinity`, `Taints`, and `Tolerations` to schedule Pods on specific Nodes based on labels, constraints, and preferences.

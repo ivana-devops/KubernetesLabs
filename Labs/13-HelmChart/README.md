@@ -5,7 +5,7 @@
 
 ---
 
-# Helm Chart
+## Helm Chart
 
 - Welcome to the `Helm` Chart hands-on lab! In this tutorial, you'll learn the essentials of `Helm` (version 3), the package manager for Kubernetes. 
 - You'll build, package, install, and manage applications using `Helm` charts, gaining practical experience with real Kubernetes resources.

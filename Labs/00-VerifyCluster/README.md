@@ -1,7 +1,7 @@
 ﻿# K8S Hands-on
+---
 
-
-
+## Verify Cluster Setup
 ### Prerequisites
 
 - **`kubectl`** - short for Kubernetes Controller - is the CLI for Kubernetes cluster and is required in order to be able to run the labs.

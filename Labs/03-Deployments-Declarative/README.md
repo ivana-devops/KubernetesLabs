@@ -1,10 +1,9 @@
-
 # K8S Hands-on
 
 
 ---
 
-# Deployment - Declarative
+## Deployment - Declarative
 
 ### Prerequisites
 - K8S cluster - <a href="../00-VerifyCluster">Setting up minikube cluster instruction</a>

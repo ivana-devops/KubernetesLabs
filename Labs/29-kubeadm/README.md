@@ -5,7 +5,7 @@
 
 ---
 
-# Kubeadm
+## Kubeadm
 
 ### Prerequisites
 - Two or more Linux machines (Ubuntu 22.04 recommended).

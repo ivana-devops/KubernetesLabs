@@ -5,7 +5,7 @@
 
 ---
 
-# Kubeapps
+## Kubeapps
 
 ### Prerequisites
 - A Kubernetes cluster with Helm 3 installed.

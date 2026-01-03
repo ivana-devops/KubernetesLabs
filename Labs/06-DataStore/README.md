@@ -1,9 +1,9 @@
-
 # K8S Hands-on
 
 
 ---
-# Data Store
+
+## DataStore (Volumes, PVC & PV)
 
 ## Secrets and ConfigMaps
 

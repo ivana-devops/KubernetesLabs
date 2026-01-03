@@ -3,7 +3,7 @@
 
 
 ---
-# WordPress, MySQL, PVC
+## WordPress, MySQL, PVC
 
 - In this tutorial you will deploy a WordPress site and a MySQL database.
 - You will use `PersistentVolumes` and `PersistentVolumeClaims` as storage.

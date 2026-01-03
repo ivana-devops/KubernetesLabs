@@ -53,6 +53,9 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
   - A Kubernetes cluster (Minikube, Kind, or cloud-based cluster)
   - `kubectl` installed and configured
 
+> [!IMPORTANT]
+> **Environment Recommendation**: While these labs can be followed on multiple platforms, they are primary verified for **Linux** (Ubuntu/Debian) or **Windows Subsystem for Linux (WSL2)**. Bash is the primary shell used for automated scripts.
+
 ---
 
 * Recommended Software Installations:
@@ -480,7 +483,6 @@ Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](htt
 
 ## Getting Started
 
-
-
-
 Let's dive into the world of Kubernetes together!
+
+👉 [**Start the Labs here! (Lab 00 - Verify Cluster)**](00-VerifyCluster/README.md)

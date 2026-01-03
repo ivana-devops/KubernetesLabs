@@ -1,10 +1,9 @@
-
 # K8S Hands-on
 
 
 ---
 
-# Rollout (Rolling Update)
+## Rollout (Rolling Update)
 
 - In this step we will deploy the same application with several different versions and we will "switch" between them.
 - For learning purposes we will play a little with the `CLI`.
