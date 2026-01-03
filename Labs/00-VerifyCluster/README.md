@@ -9,7 +9,7 @@
 
 ---
 
-### 01. Installing minikube
+### 01. Installing Kind
 
 - If you don't have an existing cluster you can use google cloud for the labs hands-on
 - Click on the button below to be able to run the labs on Google Shell <br/>
@@ -21,73 +21,73 @@
 
 === "≡ƒìÄ macOS"
 
-    **Install minikube using Homebrew**
+    **Install Kind using Homebrew**
     ```bash
-    brew install minikube
+    brew install kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "≡ƒÉº Linux (Ubuntu/Debian)"
 
-    **Download minikube binary**
+    **Download Kind binary**
     ```bash
-    curl -Lo ./minikube https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-linux-amd64
-    chmod +x ./minikube
-    sudo mv ./minikube /usr/local/bin/minikube
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "≡ƒÉº Linux (CentOS)"
 
-    **Download minikube binary**
+    **Download Kind binary**
     ```bash
-    curl -Lo ./minikube https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-linux-amd64
-    chmod +x ./minikube
-    sudo mv ./minikube /usr/local/bin/minikube
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "Γè₧ Windows"
 
-    Download minikube from: [https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-windows-amd64](https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-windows-amd64)
+    Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
-### 02. Create minikube cluster
+### 02. Create Kind cluster
 
 ```sh
-minikube create cluster
+kind create cluster
 ```
 
 - You should see an output like this:
 
 ```sh
-Creating cluster "minikube" ...
- ΓÇó Ensuring node image (minikubeest/node:v1.27.3) ≡ƒû╝
+Creating cluster "kind" ...
+ ΓÇó Ensuring node image (kindest/node:v1.27.3) ≡ƒû╝
  ΓÇó Preparing nodes ≡ƒôª
  ΓÇó Writing configuration ≡ƒô£
  ΓÇó Starting control-plane ≡ƒò╣∩╕Å
  ΓÇó Installing CNI ≡ƒöî
  ΓÇó Installing StorageClass ≡ƒÆ╛
-Set kubectl context to "minikube-minikube"
+Set kubectl context to "kind-kind"
 You can now use your cluster with:
 
-kubectl cluster-info --context minikube-minikube
+kubectl cluster-info --context kind-kind
 
-Thanks for using minikube! ≡ƒÿè
+Thanks for using kind! ≡ƒÿè
 ```
 
-### 03. Check the minikube cluster status
+### 03. Check the Kind cluster status
 
 ```sh
 kubectl cluster-info
@@ -120,17 +120,17 @@ kubectl config view
     - cluster:
         certificate-authority-data: DATA+OMITTED
         server: https://127.0.0.1:6443
-      name: minikube-minikube
+      name: kind-kind
     contexts:
     - context:
-        cluster: minikube-minikube
-        user: minikube-minikube
-      name: minikube-minikube
-    current-context: minikube-minikube
-    minikube: Config
+        cluster: kind-kind
+        user: kind-kind
+      name: kind-kind
+    current-context: kind-kind
+    kind: Config
     preferences: {}
     users:
-    - name: minikube-minikube
+    - name: kind-kind
       user:
         client-certificate-data: REDACTED
         client-key-data: REDACTED
@@ -140,9 +140,9 @@ kubectl config view
 
 ### 05. Verify that you can "talk" to your cluster
 
-**Check the nodes in the minikube cluster**
+**Check the nodes in the Kind cluster**
 ```sh
-# Check the nodes in the minikube cluster
+# Check the nodes in the Kind cluster
 kubectl get nodes
 ```
 
@@ -150,6 +150,5 @@ kubectl get nodes
 
 ```sh
 NAME                 STATUS   ROLES           AGE    VERSION
-minikube-control-plane   Ready    control-plane   2m     v1.27.3
+kind-control-plane   Ready    control-plane   2m     v1.27.3
 ```
-

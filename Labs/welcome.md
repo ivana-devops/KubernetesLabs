@@ -47,7 +47,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
   - Basic understanding of containerization (Docker)
   - Command-line (CLI) familiarity
-  - A Kubernetes cluster (Minikube, minikube, or cloud-based cluster)
+  - A Kubernetes cluster (Minikube, Kind, or cloud-based cluster)
   - `kubectl` installed and configured
 
 ---
@@ -64,7 +64,7 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
   | **Node.js**            | JavaScript runtime environment   |
   | **Visual Studio Code** | Source code editor               |
   | **k9s**                | Kubernetes CLI tool              |
-  | **minikube**               | Kubernetes cluster               |
+  | **Kind**               | Kubernetes cluster               |
   | **kubectl**            | Kubernetes command-line tool     |
 
 
@@ -530,51 +530,51 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 
 ---
 
-### ≡ƒÄ» minikube Installation
+### ≡ƒÄ» Kind Installation
 
 === "≡ƒìÄ macOS"
 
-    **Install minikube using Homebrew**
+    **Install Kind using Homebrew**
     ```bash
-    brew install minikube
+    brew install kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "≡ƒÉº Linux (Ubuntu/Debian)"
 
-    **Download minikube binary**
+    **Download Kind binary**
     ```bash
-    curl -Lo ./minikube https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-linux-amd64
-    chmod +x ./minikube
-    sudo mv ./minikube /usr/local/bin/minikube
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "≡ƒÉº Linux (CentOS)"
 
-    **Download minikube binary**
+    **Download Kind binary**
     ```bash
-    curl -Lo ./minikube https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-linux-amd64
-    chmod +x ./minikube
-    sudo mv ./minikube /usr/local/bin/minikube
+    curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+    chmod +x ./kind
+    sudo mv ./kind /usr/local/bin/kind
     ```
 
     **Verify installation**
     ```bash
-    minikube version
+    kind version
     ```
 
 === "Γè₧ Windows"
 
-    Download minikube from: [https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-windows-amd64](https://minikube.sigs.k8s.io/dl/v0.20.0/minikube-windows-amd64)
+    Download Kind from: [https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64](https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64)
 
 ---
 
@@ -586,4 +586,3 @@ This is a comprehensive collection of hands-on labs designed to help you learn a
 Let's dive into the world of Kubernetes together!
 
 ≡ƒæë [**Start the Labs here! (Lab 00 - Verify Cluster)**](00-VerifyCluster/README.md)
-
