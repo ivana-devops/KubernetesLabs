@@ -105,6 +105,7 @@ spec:
 
 ## `commonAnnotation`
 
+**Run the command**
 ```sh
 kubectl kustomize samples/01-commonAnnotation
 ```
@@ -152,6 +153,7 @@ commonAnnotations:
 
 ## `commonLabels`
 
+**Run the command**
 ```sh
 kubectl kustomize samples/02-commonLabels
 ```

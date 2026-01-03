@@ -31,25 +31,29 @@
 
 === "🐧 Linux (Ubuntu/Debian)"
 
+    **Download Kind binary**
     ```bash
-    # Download Kind binary
     curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
 === "🐧 Linux (CentOS)"
 
+    **Download Kind binary**
     ```bash
-    # Download Kind binary
     curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
     chmod +x ./kind
     sudo mv ./kind /usr/local/bin/kind
-    
-    # Verify installation
+    ```
+
+    **Verify installation**
+    ```bash
     kind version
     ```
 
