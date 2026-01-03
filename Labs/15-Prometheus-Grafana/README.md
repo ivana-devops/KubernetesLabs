@@ -77,17 +77,17 @@ helm repo update
 
 - `Prometheus` is installed using the `prometheus-stack` `Helm` chart.
 
+  **Install Prometheus, Alertmanager, and Node Exporter**
+  Create the `monitoring` namespace if it does not exist.
   ```bash
-  # Install Prometheus 
-  #          Alertmanager
-  #          Node Exporter
-  # Create the `monitoring` namespace if it does not exist.
   helm install  prometheus                                  \
                 --namespace monitoring                      \
                 --create-namespace                          \
                 prometheus-community/kube-prometheus-stack  
-  
-  # Verify the status of the release using the following:
+  ```
+
+  **Verify the status of the release using the following:**
+  ```bash
   helm status prometheus -n monitoring
   ```
 
@@ -98,8 +98,10 @@ helm repo update
 
   ```bash
   helm install grafana grafana/grafana --namespace monitoring
-  
-  # Verify the status of the release using the following:
+  ```
+
+  **Verify the status of the release using the following:**
+  ```bash
   helm status grafana -n monitoring
   ```
 

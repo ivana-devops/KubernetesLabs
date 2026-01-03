@@ -99,18 +99,21 @@ Istio is an open-source service mesh that provides a way to manage microservices
 - Go to the [Istio releases page](https://github.com/istio/istio/releases) and download the latest version of Istio. 
 - Alternatively, use `istioctl` to install Istio, as follows:
 
+  **Install Istio using istioctl**
   ```bash
-  # Install Istio using istioctl
   echo  "Installing Istio..."
   curl  -L https://istio.io/downloadIstio | sh -
   cd    istio-*
-  
-  # Add bin directory to your $PATH
-  export PATH=$PWD/bin:$PATH
+  ```
 
-  # Install istio with all features enabled (demo profile)
+  **Add bin directory to your $PATH**
+  ```bash
+  export PATH=$PWD/bin:$PATH
+  ```
+
+  **Install istio with all features enabled (demo profile)**
+  ```bash
   istioctl install --set profile=demo -y
-  
   ```
  
  
@@ -118,8 +121,8 @@ Istio is an open-source service mesh that provides a way to manage microservices
 
 - Check the Istio system components in the `istio-system` namespace:
 
+**Verify Istio installation**
 ```bash
-# Verify Istio installation
 kubectl get pods -n istio-system
 ```
 
@@ -140,20 +143,18 @@ kubectl get pods -n istio-system
 
 - We will install Kiali using Helm:
 
+  **Add the Kiali Helm chart repository**
   ```bash
-  # Add the Kiali Helm chart repository
   helm repo add kiali https://kiali.org/helm-charts
   helm repo update
   ```
  
 - **Install Kiali:** 
 
+  **Install Kiali into the `istio-system` namespace**
   ```bash
-  # Install Kiali into the `istio-system` namespace 
   # this is the default namespace for Istio components
-  #
   # Install Kiali with anonymous authentication
-  #
   helm install  kiali-server              \
                 kiali/kiali-server        \
                 --namespace istio-system  \

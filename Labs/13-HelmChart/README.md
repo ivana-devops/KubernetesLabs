@@ -213,8 +213,8 @@ helm template codewizard-helm-demo
     - `--set` - pass configuration from the command line
 
 
+**Install the packed helm chart**
 ```sh
-# Install the packed helm chart
 helm install codewizard-helm-demo codewizard-helm-demo-0.1.0.tgz
 ```
 
@@ -222,11 +222,13 @@ helm install codewizard-helm-demo codewizard-helm-demo-0.1.0.tgz
 
 - Examine newly created `Helm` chart release, and all cluster created resources:
 
+**List the installed helms**
 ```sh
-# List the installed helms
 helm ls
+```
 
-# Check the resources
+**Check the resources**
+```sh
 kubectl get all -n codewizard
 ```
 

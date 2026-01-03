@@ -241,14 +241,18 @@ curl localhost:5000
 
 ##### 1. Create the desired secret and config map for this lab
 
+**Create Secret**
 ```bash
-# Create Secret
 kubectl create -n codewizard secret generic token --from-literal=TOKEN=Hard-To-Guess3
+```
 
-# Create ConfigMap
+**Create ConfigMap**
+```bash
 kubectl create -n codewizard configmap language --from-literal=LANGUAGE=English
+```
 
-# Verify
+**Verify**
+```bash
 kubectl get secrets,cm -n codewizard
 kubectl describe secret token -n codewizard
 kubectl describe cm language -n codewizard

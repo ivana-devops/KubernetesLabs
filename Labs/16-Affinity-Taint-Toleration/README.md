@@ -69,7 +69,10 @@ kubectl label nodes <node-name> environment=production
 # Label another node with environment=development
 kubectl label nodes <node-name> environment=development
 
-# Verify the labels
+```
+
+**Verify the labels**
+```bash
 kubectl get nodes --show-labels
 ```
 
@@ -99,14 +102,18 @@ spec:
 
 - Apply the Pod:
 
+**Create the Pod**
 ```bash
-# Create the Pod
 kubectl apply -f affinity-required-pod.yaml
+```
 
-# Check which Node the Pod is running on
+**Check which Node the Pod is running on**
+```bash
 kubectl get pod affinity-required-pod -o wide
+```
 
-# Verify it's running on the production Node
+**Verify it's running on the production Node**
+```bash
 kubectl describe pod affinity-required-pod | grep Node:
 ```
 
