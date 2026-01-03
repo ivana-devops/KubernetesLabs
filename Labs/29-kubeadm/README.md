@@ -22,14 +22,14 @@ Nodes must have a container runtime installed before `kubeadm` can run.
 
 ### Step 02 - Installing Kubeadm, Kubelet, and Kubectl
 **Install packages**
-```sh
+```bash
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl
 # Add Google Cloud public signing key
 # Add Kubernetes apt repository
 ```
 
 ### Step 03 - Initializing the Control Plane
-```sh
+```bash
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 ```
 

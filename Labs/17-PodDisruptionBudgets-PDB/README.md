@@ -41,7 +41,7 @@
 - For this tutorial you should get familiar with [**Kubernetes Eviction Policies**](https://kubernetes.io/docs/concepts/scheduling-eviction/), as it demonstrates how `Pod Disruption Budgets` handle evictions.
 
 - As in the `Kubernetes Eviction Policies` tutorial, we start with 
-```sh
+```bash
 eviction-hard="memory.available<480M"
 ```
 
@@ -88,7 +88,7 @@ spec:
 
 - Run the following command to start minikube with the required `Feature Gates` and `Eviction Signals`:
 
-```sh
+```bash
 minikube start \
     --extra-config=kubelet.eviction-hard="memory.available<480M" \
     --extra-config=kubelet.eviction-pressure-transition-period="30s" \
@@ -149,7 +149,7 @@ resources:
 
 - Create the pods with the following command:
 
-```sh
+```bash
 kubectl apply -f resources/50MB-ram.yaml
 ```
 

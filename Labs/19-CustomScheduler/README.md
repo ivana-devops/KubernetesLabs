@@ -92,7 +92,7 @@ spec:
 
 - The "trick" is loop over all the waiting pods and search for the custom scheduler match in `spec.schedulerName` 
 
-```sh
+```bash
 
 ...
   # Get a list of all our pods in pending state

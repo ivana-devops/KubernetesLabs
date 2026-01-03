@@ -13,7 +13,7 @@
 ### Walkthrough
 - Patch `minikube` so we can use `Service: LoadBalancer`
 
-```sh
+```bash
 # Source:
 # https://github.com/knative/serving/blob/b31d96e03bfa1752031d0bc4ae2a3a00744d6cd5/docs/creating-a-kubernetes-cluster.md#loadbalancer-support-in-minikube
 
@@ -45,6 +45,6 @@ kubectl run minikube-lb-patch \
 - Port forward from the host to the application
 - We use a port forward so we will be able to test and verify if the WordPress is actually running:
 
-```sh
+```bash
 kubectl port-forward service/wordpress 8080:32267 -n wp-demo
 ```

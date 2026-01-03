@@ -20,18 +20,18 @@ Krew is the plugin manager for `kubectl` command-line tool. It helps you discove
 Follow the instructions at [krew.sigs.k8s.io](https://krew.sigs.k8s.io/docs/user-guide/setup/install/) for your specific OS.
 
 ### Step 02 - Updating the Plugin List
-```sh
+```bash
 kubectl krew update
 ```
 
 ### Step 03 - Searching for Plugins
-```sh
+```bash
 kubectl krew search
 ```
 
 ### Step 04 - Installing a Plugin
 For example, to install the `who-can` plugin:
-```sh
+```bash
 kubectl krew install who-can
 ```
 

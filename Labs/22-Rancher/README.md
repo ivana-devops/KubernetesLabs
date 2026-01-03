@@ -17,23 +17,23 @@
 Rancher is an open-source software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters across any infrastructure, while providing DevOps teams with integrated tools for running containerized workloads.
 
 ### Step 01 - Adding the Rancher Helm Repository
-```sh
+```bash
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 ```
 
 ### Step 02 - Creating a Namespace for Rancher
-```sh
+```bash
 kubectl create namespace cattle-system
 ```
 
 ### Step 03 - Installing cert-manager
 Rancher relies on cert-manager to issue certificates for its UI.
-```sh
+```bash
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
 ```
 
 ### Step 04 - Installing Rancher with Helm
-```sh
+```bash
 helm install rancher rancher-latest/rancher \
   --namespace cattle-system \
   --set hostname=rancher.my.org \

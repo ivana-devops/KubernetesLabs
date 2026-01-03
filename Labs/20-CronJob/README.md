@@ -56,13 +56,13 @@ spec:
 
 ### Step 02 - Apply the CronJob
 
-```sh
+```bash
 kubectl apply -f hello-cronjob.yaml
 ```
 
 ### Step 03 - Verify CronJob Creation
 
-```sh
+```bash
 kubectl get cronjob hello
 ```
 
@@ -71,19 +71,19 @@ kubectl get cronjob hello
 
 - List CronJobs:
 
-```sh
+```bash
 kubectl get cronjobs
 ```
 
 - List Jobs created by the CronJob:
 
-```sh
+```bash
 kubectl get jobs
 ```
 
 - List Pods created by Jobs:
 
-```sh
+```bash
 kubectl get pods
 ```
 
@@ -107,7 +107,7 @@ kubectl logs <pod-name>
 
 - Delete the CronJob and its Jobs:
 
-```sh
+```bash
 kubectl delete cronjob hello
 kubectl delete jobs --all
 ```

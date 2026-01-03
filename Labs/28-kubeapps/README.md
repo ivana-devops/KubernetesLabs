@@ -16,7 +16,7 @@
 Kubeapps is a web-based dashboard that allows users to deploy and manage applications on Kubernetes from a catalog of Helm charts and Operators.
 
 ### Step 01 - Installing Kubeapps
-```sh
+```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 kubectl create namespace kubeapps
 helm install kubeapps bitnami/kubeapps --namespace kubeapps
@@ -24,7 +24,7 @@ helm install kubeapps bitnami/kubeapps --namespace kubeapps
 
 ### Step 02 - Accessing the Dashboard
 You can port-forward to access the UI:
-```sh
+```bash
 kubectl port-forward -n kubeapps svc/kubeapps 8080:80
 ```
 

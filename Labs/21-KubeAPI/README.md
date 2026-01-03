@@ -92,11 +92,13 @@ RUN     chmod +x api_query.sh .
 
 - Deploy to the cluster
 
-```sh
-# Remove old content if any
+**Remove old content if any**
+```bash
 kubectl kustomize k8s | kubectl delete -f -
+```
 
-# Deploy the content
+**Deploy the content**
+```bash
 kubectl kustomize k8s | kubectl apply -f -
 ```
 
@@ -104,10 +106,11 @@ kubectl kustomize k8s | kubectl apply -f -
 
 - Run the following script to verify that the connection to the API is working:
 
-```sh
-# Get the deployment pod name
+**Get the deployment pod name**
+```bash
 POD_NAME=$(kubectl get pod -A -l app=monitor-app -o jsonpath="{.items[0].metadata.name}")
-
+```
 # Print out the logs to verify that the pods is connected to the API
+```bash
 kubectl exec -it -n codewizard $POD_NAME sh ./api_query.sh
 ```

@@ -243,15 +243,15 @@ kubectl port-forward            \
 
 - To track the number of pods running in the cluster, add new panel with the following query:
 
-```sh
-# This query counts the number of pods running in all the namespaces
+**This query counts the number of pods running in all the namespaces**
+```bash
 count(kube_pod_info{}) by (namespace)
 ```
 
 - Add another query that counts the number of pods in the `monitoring` namespace:
 
 
-  ```sh
+  ```bash
   count(kube_pod_info{namespace="monitoring"}) by (namespace)
   ```
 !!! note "Tip"

@@ -18,7 +18,7 @@ Metrics Server is a scalable, efficient source of container resource metrics for
 
 ### Step 01 - Installing Metrics Server
 You can install Metrics Server using the official high-availability manifest:
-```sh
+```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
@@ -31,7 +31,7 @@ Usually, in local environments, you need to allow insecure certificates:
 
 ### Step 03 - Verifying Installation
 Once installed, you can use the `top` command:
-```sh
+```bash
 kubectl top nodes
 kubectl top pods
 ```

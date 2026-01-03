@@ -49,14 +49,14 @@
 
 - Deploy a simple `Nginx` application that generates access logs.
 
-```sh
+```bash
 kubectl create deployment nginx --image=nginx
 kubectl expose deployment nginx --port=80 --type=NodePort
 ```
 
 - Check that the pod is running:
 
-```sh
+```bash
 kubectl get pods
 ```
 
@@ -64,7 +64,7 @@ kubectl get pods
 
 - Deploy `Elasticsearch` using `Helm`:
 
-```sh
+```bash
 helm repo add elastic https://helm.elastic.co
 helm repo update
 helm install elasticsearch elastic/elasticsearch --set replicas=1 --set minimumMasterNodes=1
@@ -72,7 +72,7 @@ helm install elasticsearch elastic/elasticsearch --set replicas=1 --set minimumM
 
 - Wait for the pod to be ready and check its status:
 
-```sh
+```bash
 kubectl get pods
 ```
 
@@ -81,13 +81,13 @@ kubectl get pods
 
 - Deploy `Kibana` using `Helm`:
 
-```sh
+```bash
 helm install kibana elastic/kibana
 ```
 
 - Forward the `Kibana` port:
 
-```sh
+```bash
 kubectl port-forward svc/kibana-kibana 5601:5601 &
 ```
 
@@ -103,13 +103,13 @@ kubectl port-forward svc/kibana-kibana 5601:5601 &
 
 - Deploy `Fluentd` as a `DaemonSet` to collect logs from all nodes and forward them to `Elasticsearch`.
 
-```sh
+```bash
 kubectl apply -f https://raw.githubusercontent.com/fluent/fluentd-kubernetes-daemonset/master/fluentd-daemonset-elasticsearch-rbac.yaml
 ```
 
 - Check that `Fluentd` pods are running:
 
-```sh
+```bash
 kubectl get pods -l app=fluentd
 ```
 
@@ -117,7 +117,7 @@ kubectl get pods -l app=fluentd
 
 - Access the `Nginx` service to generate logs:
 
-```sh
+```bash
 minikube service nginx
 ```
 
