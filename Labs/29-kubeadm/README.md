@@ -21,11 +21,11 @@ Kubeadm is the standard tool for bootstrapping a minimum viable Kubernetes clust
 Nodes must have a container runtime installed before `kubeadm` can run.
 
 ### Step 02 - Installing Kubeadm, Kubelet, and Kubectl
+**Install packages**
 ```sh
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl
 # Add Google Cloud public signing key
 # Add Kubernetes apt repository
-# Install packages
 ```
 
 ### Step 03 - Initializing the Control Plane

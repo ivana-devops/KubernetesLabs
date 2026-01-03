@@ -151,11 +151,13 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 - Alternatively, you can change the service type to **LoadBalancer** or create an **Ingress**:
 
+**Change to LoadBalancer (for cloud environments)**
 ```bash
-# Change to LoadBalancer (for cloud environments)
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+```
 
-# Or use NodePort (for local/development)
+**Or use NodePort (for local/development)**
+```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ```
 

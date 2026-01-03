@@ -263,15 +263,15 @@ psql \
 
 #### 04.01. Scale down the `Statefulset` to 0
 
+**Scale down the `Statefulset` to 0**
 ```bash
-# scale down the `Statefulset` to 0
 kubectl scale statefulset postgres -n codewizard --replicas=0
 ```
 
 #### 04.02. Verify that the pods Terminated
 
+**Wait until the pods will be terminated**
 ```bash
-# Wait until the pods will be terminated
 kubectl get pods -n codewizard --watch
 ```
 !!! success "Expected Result"

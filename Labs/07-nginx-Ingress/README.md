@@ -130,11 +130,13 @@ spec:
 -   The certificate is in the same folder as this file
 -   The certificate is for the hostname: `ingress.local`
 
+**Create the certificate**
 ```bash
-# Create the certificate
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certificate.key -out certificate.crt
+```
 
-# Create DH parameters
+**Create DH parameters**
+```bash
 openssl dhparam -out certificate.pem 2048
 ```
 
