@@ -221,11 +221,13 @@ kubectl apply -n codewizard -f variables-from-yaml.yaml
 - We will need a second container for executing the curl request.
 - We will use a `busyBox image` for this purpose.
 
+**Get the pod name**
 ```bash
-# Get the pod name
 kubectl get pods -n codewizard
+```
 
-# Login and test
+**Login and test**
+```bash
 kubectl exec -it -n codewizard <pod name> -- sh
 curl localhost:5000
 ```
