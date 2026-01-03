@@ -46,7 +46,7 @@ namespace/codewizard created
 
 ##### 1. write the server code
 - For this demo we will use a tiny NodeJS server which will consume the desired configuration values from the secret
-- This is the code of our server [server.js](server.js):
+- This is the code of our server [server.js](./resources/server.js):
 
 ```js
 //
@@ -183,7 +183,7 @@ docker stop server
 ##### 1. Writing the deployment & service file
 
 - Deploy the docker container that you have prepared in the previous step with the following `Deployment` file.
-- In this sample we will define the values in the `YAML` file, later on we will use Secrets/ConfigMap [variables-from-yaml.yaml](./variables-from-yaml.yaml)
+- In this sample we will define the values in the `YAML` file, later on we will use Secrets/ConfigMap [variables-from-yaml.yaml](./resources/variables-from-yaml.yaml)
 
 ```yaml
 apiVersion: v1

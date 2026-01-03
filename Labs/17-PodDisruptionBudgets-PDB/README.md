@@ -80,9 +80,8 @@ spec:
 ---
 ## Walkthrough
 
-[01. start minikube with Feature Gates](#01-start-minikube-with-feature-gates)
-
-[02. Check Node Pressure(s)](#02-check-node-pressure)
+[01. start minikube with Feature Gates](#step-01-start-minikube-with-feature-gates)
+[02. Check Node Pressure(s)](#step-02-check-node-pressures)
 
 ---
 ### Step 01 - Start minikube with Feature Gates
