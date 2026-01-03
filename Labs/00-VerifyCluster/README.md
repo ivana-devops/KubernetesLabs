@@ -134,28 +134,7 @@ kubectl config view
         client-key-data: REDACTED
     ```
 
-- You should get something like the following
-```yaml
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: DATA+OMITTED
-    server: https://127.0.0.1:6443
-  name: kind-kind
-contexts:
-- context:
-    cluster: kind-kind
-    user: kind-kind
-  name: kind-kind
-current-context: kind-kind
-kind: Config
-preferences: {}
-users:
-- name: kind-kind
-  user:
-    client-certificate-data: REDACTED
-    client-key-data: REDACTED
-```
+
 
 ### 05. Verify that you can "talk" to your cluster
 
